@@ -37,8 +37,8 @@ pre: " <b> 4.2. </b> "
 
 ### **Hình ảnh sự kiện**
 
-![Phiên theo dõi Watch Party AWS Cloud and AI Day Hanoi tại Văn phòng AWS Việt Nam, Tầng 26 Bitexco](/images/report/image5.png)
+![Thẻ tham dự AWS Cloud and AI Day Hanoi của tôi](/images/report/event2-badge.jpg)
 
-![Người tham dự theo dõi trực tuyến bài phát biểu chính AWS Cloud and AI Day Hanoi](/images/report/image6.png)
+![Tại buổi Watch Party trước màn hình Track 1 "Builders x AI", Văn phòng AWS Việt Nam](/images/report/event2-builders-ai-track.jpg)
 
-![Trao đổi và kết nối trong sự kiện Watch Party AWS Cloud and AI Day Hanoi](/images/report/image7.png)
+![Tại khu sảnh Văn phòng AWS Việt Nam trong buổi Watch Party](/images/report/event2-aws-office.jpg)
