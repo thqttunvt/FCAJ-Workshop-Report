@@ -16,5 +16,5 @@ Trong kỳ thực tập, tôi đã biên soạn và đăng tải 3 bài viết k
 * **[Blog 2: Mật khẩu nằm trong source code: tiện một lần, trả giá nhiều lần](3.2-blog2/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2331503327614626)  
   Loại bỏ mật khẩu nằm trong source code và quản lý vòng đời secret trên AWS với AWS Secrets Manager, AWS KMS, IAM Role theo nguyên tắc quyền tối thiểu và AWS CloudTrail.
 
-* **[Blog 3: Đối tác đã tắt ứng dụng, nhưng công việc vẫn phải tìm đến họ](3.3-blog3/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/share/p/1Gs4wyyVsv/)  
-  Kiến trúc xử lý sự kiện bất đồng bộ hỗ trợ đối tác offline với Amazon EventBridge, SQS, Lambda và DynamoDB.
+* **[Blog 3: API public không có nghĩa là ai muốn gọi bao nhiêu cũng được](3.3-blog3/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2339564356808523)  
+  Bảo vệ API public khỏi lưu lượng bất thường và lạm dụng với rate-based rule và managed rule group của AWS WAF, authorizer của Amazon API Gateway và giám sát bằng Amazon CloudWatch.
