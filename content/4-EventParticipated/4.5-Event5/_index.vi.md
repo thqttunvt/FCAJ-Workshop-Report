@@ -33,6 +33,6 @@ Sự kiện là một trải nghiệm đặc biệt và đáng nhớ trong kỳ 
 
 ### **Hình ảnh sự kiện**
 
-![Thực hành lắp ráp gấu bông IoT tương tác cùng Operation Smile Vietnam](/images/report/image11.png)
+![Cùng chú gấu bông thông minh đã hoàn thành tại buổi workshop với Operation Smile Vietnam](/images/report/event5-smart-plushie.jpg)
 
-![Thành phẩm gấu bông thông minh cùng nhóm tình nguyện tại Phòng EC2, Tầng 36, Văn phòng AWS Việt Nam](/images/report/image12.png)
+![Mã QR gửi góp ý cuối buổi, Văn phòng AWS Việt Nam, Tầng 36](/images/report/event5-feedback-qr.jpg)

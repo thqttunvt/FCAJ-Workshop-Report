@@ -33,6 +33,6 @@ Participating in this workshop stood out from purely technical cloud sessions. I
 
 ### **Event Photos**
 
-![Hands-on assembly of interactive IoT smart plushies with Operation Smile Vietnam](/images/report/image11.png)
+![With my finished smart plushie at the Operation Smile Vietnam workshop](/images/report/event5-smart-plushie.jpg)
 
-![Completed smart plushies and volunteer team at EC2 Room, Level 36, AWS Vietnam Office](/images/report/image12.png)
+![Feedback QR code shown at the end of the session, AWS Vietnam Office, Level 36](/images/report/event5-feedback-qr.jpg)
