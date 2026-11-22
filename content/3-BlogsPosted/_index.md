@@ -10,7 +10,7 @@ During my internship, I authored three technical blog posts published to the [AW
 
 ### Published Blog Articles
 
-* **[Blog 1: One Chair, Two People, and an Unforgiving Database](3.1-blog1/)** · [AWS Study Group Post](https://www.facebook.com/share/p/1LZaN36GBA/)  
+* **[Blog 1: If an Intruder Can Delete the Logs, What Is Left to Investigate With?](3.1-blog1/)** · [AWS Study Group Post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2330733614358264)  
   Solving distributed race conditions and duplicate job claims using DynamoDB atomic transactions (`TransactWriteItems`) and Idempotency Keys.
 
 * **[Blog 2: You Have a Valid Passport, But Do You Have the Right to Renovate Your Neighbor's House?](3.2-blog2/)** · [AWS Study Group Post](https://www.facebook.com/share/p/1FM4NPiHjC/)  

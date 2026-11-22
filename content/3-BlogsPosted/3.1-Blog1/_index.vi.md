@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Một cái ghế, hai người, và một database không biết nhường nhịn
+# Nếu kẻ xâm nhập xóa được log, bạn còn điều tra bằng gì?
 
-**Đăng trên AWS Study Group:** [Xem bài viết gốc trên Facebook](https://www.facebook.com/share/p/1LZaN36GBA/)
+**Đăng trên AWS Study Group:** [Xem bài viết gốc trên Facebook](https://www.facebook.com/groups/awsstudygroupfcj/posts/2330733614358264)
 
 Hãy tưởng tượng một nền tảng kết nối khách hàng với đối tác, nơi mỗi công việc chỉ được một người nhận. Partner A và Partner B cùng thấy một công việc, và cả hai cùng bấm “Nhận việc” gần như cùng lúc.
 

@@ -10,7 +10,7 @@ Trong kỳ thực tập, tôi đã biên soạn và đăng tải 3 bài viết k
 
 ### Danh sách các bài viết đã đăng
 
-* **[Blog 1: Một cái ghế, hai người, và một database không biết nhường nhịn](3.1-blog1/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/share/p/1LZaN36GBA/)  
+* **[Blog 1: Nếu kẻ xâm nhập xóa được log, bạn còn điều tra bằng gì?](3.1-blog1/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2330733614358264)  
   Giải quyết bài toán Race Condition khi hai người cùng nhận việc bằng DynamoDB atomic transaction (`TransactWriteItems`) và Idempotency Key.
 
 * **[Blog 2: Bạn có hộ chiếu hợp lệ, vậy có được quyền sửa nhà hàng xóm không?](3.2-blog2/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/share/p/1FM4NPiHjC/)  

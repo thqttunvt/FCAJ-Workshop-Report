@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# One Chair, Two People, and an Unforgiving Database
+# If an Intruder Can Delete the Logs, What Is Left to Investigate With?
 
-**Published on AWS Study Group:** [Read original Facebook post](https://www.facebook.com/share/p/1LZaN36GBA/)
+**Published on AWS Study Group:** [Read original Facebook post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2330733614358264)
 
 Imagine a platform connecting customers with service partners, where each job can only be accepted by one person. Partner A and Partner B see the same listing, and both click "Accept Job" almost simultaneously.
 
