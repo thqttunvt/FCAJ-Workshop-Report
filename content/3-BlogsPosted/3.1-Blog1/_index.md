@@ -40,4 +40,4 @@ One transaction, one winner, no human referee required.
 
 #AWS #DynamoDB #Serverless #RaceCondition #Engineering
 
-![DynamoDB TransactWriteItems and Idempotency Key concurrency control diagram](/images/report/image1.png)
+![Tamper-resistant audit trail architecture with AWS CloudTrail, S3 Object Lock, AWS KMS, Amazon EventBridge and Amazon SNS](/images/report/blog1-audit-trail-architecture.jpg)

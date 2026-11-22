@@ -40,4 +40,4 @@ Một transaction, một người thắng, không cần trọng tài.
 
 #AWS #DynamoDB #Serverless #RaceCondition #Engineering
 
-![Sơ đồ kiểm soát đồng thời với DynamoDB TransactWriteItems và Idempotency Key](/images/report/image1.png)
+![Kiến trúc bảo vệ audit trail khỏi bị chỉnh sửa với AWS CloudTrail, S3 Object Lock, AWS KMS, Amazon EventBridge và Amazon SNS](/images/report/blog1-audit-trail-architecture.jpg)
