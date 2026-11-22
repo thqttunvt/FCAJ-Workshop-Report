@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-Trong kỳ thực tập, tôi đã biên soạn và đăng tải 3 bài viết kỹ thuật chuyên sâu trên cộng đồng [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj), tập trung vào các giải pháp kiến trúc đám mây thực tế, an toàn thông tin và xử lý đồng thời trong môi trường Serverless.
+Trong kỳ thực tập, tôi đã viết và đăng 3 bài viết kỹ thuật trên cộng đồng [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj), tập trung vào bảo mật trên AWS: bảo vệ log audit khỏi bị chỉnh sửa, quản lý secret an toàn và bảo vệ API public trước việc lạm dụng.
 
 ### Danh sách các bài viết đã đăng
 

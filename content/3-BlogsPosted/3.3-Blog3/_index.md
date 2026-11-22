@@ -10,39 +10,40 @@ pre: " <b> 3.3. </b> "
 
 **Published on AWS Study Group:** [Read original Facebook post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2339564356808523)
 
-A familiar challenge: A customer posts a service request, and the system needs to match qualified partners and send quote invitations. But the partner is currently offline. Their app is closed, their phone is resting on the table.
+A public API has to be reachable from the Internet. But public does not mean the backend must accept unlimited requests from a single client, a single IP, or a group of abnormal requests.
 
-Must we wait until they come online to dispatch the invitation? Not at all. We build a decoupled, event-driven system where the backend executes reliably regardless of user connectivity.
+Imagine a sign-in endpoint or an endpoint that sends verification codes. A client can send requests nonstop, driving up costs, overloading the backend, or making the service hard to use for real users. If you rely only on the frontend to limit how many times a button can be clicked, anyone can still call the API directly.
 
-**Proposed Architecture**
+**How to Solve This?**
 
-1. Customer submits a request via Amazon API Gateway.  
-2. AWS Lambda persists the job record in DynamoDB and emits a `JobCreated` event to Amazon EventBridge.  
-3. EventBridge routes the event into Amazon SQS for durable asynchronous buffering.  
-4. A Lambda Matcher worker queries eligible partners via DynamoDB Global Secondary Indexes (GSIs) filtered by geohash and service category.  
-5. The worker writes individual offer invitations into an Offers table, using compound key `partnerId + jobId` to prevent duplicates.  
-6. Amazon SNS sends push notifications as optional alerts—never as the primary data store.
+A protection layer at the edge can be built as follows:
 
-**The Key Insight**
+* The client sends requests to Amazon API Gateway.
+* AWS WAF is attached to the API Gateway stage to evaluate requests against a Web ACL.
+* WAF applies suitable managed rule groups, together with a rate-based rule that limits traffic exceeding a threshold within a time window.
+* API Gateway uses a suitable authorizer, such as Amazon Cognito or a Lambda authorizer, to authenticate users on endpoints that require sign-in.
+* The backend Lambda still checks permissions on each resource, because successful authentication does not replace authorization.
+* Amazon CloudWatch collects metrics and logs to monitor blocked requests, errors, and unusual traffic spikes.
 
-State is saved first; notifications are delivered second. Even if the partner was offline during job creation, the invitation rests safely in the database. When they reopen the app, the frontend queries `GET /my-offers`, and the backend returns all persisted offers.
+**Rate Limiting Is Not an Absolute Shield**
 
-We don't gamble on push notifications arriving reliably. A push notification is merely a knock on the door; DynamoDB holds the letter.
+A WAF rate-based rule is only a mitigation layer, not a promise that every attack will be blocked. A threshold that is too low blocks real users by mistake; one that is too high is almost useless. An IP also does not always correspond to one person, especially when many users share the same NAT network.
 
-What if EventBridge replays events, or SQS delivers a message twice? Idempotent conditional writes prevent duplicate offers. Poison messages failing retries route safely to a Dead-Letter Queue (DLQ) for inspection.
+For sensitive endpoints such as sign-in, sending OTPs, or password recovery, combine multiple signals: IP, authenticated identity, per-account behavior, and application-level limits. Also, do not write tokens, passwords, or OTP codes to logs for analysis.
 
 **What Needs Verification?**
 
-* Create a job while the candidate partner is offline.  
-* Verify that the offer record is persisted in DynamoDB.  
-* Open the app afterward and confirm the offer renders correctly.  
-* Replay the exact event payload multiple times to prove offers are never duplicated.  
-* Inject an unparseable payload to verify DLQ redirection.
+* Send requests at a normal rate and confirm that legitimate users can still access the service.
+* Generate test traffic above the threshold in a controlled environment and confirm that WAF starts applying the configured action.
+* Review metrics and logs to distinguish requests that were allowed, blocked by WAF, and rejected by the backend.
+* Have several users share one IP to assess the risk of false blocks.
+* Confirm that endpoints requiring sign-in still reject requests with a missing or invalid token.
+* Check that the backend still has its own authorization and does not treat WAF as a data authorization mechanism.
 
-A resilient system finishes its work without depending on 24/7 client connectivity.
+WAF at the door helps keep troublemakers out. But checking who is allowed into which room is still the application's job.
 
-*Note: This is a standalone conceptual AWS Study Group reference pattern (separate from ReLoop's 12-service stack) and a proposed testing design, not a live production deployment report.*
+*Note: This is a proposed architecture and testing design, not the result of an actual production deployment.*
 
-#AWS #EventDrivenArchitecture #SQS #EventBridge #Lambda #DynamoDB #SNS
+#AWS #WAF #APIGateway #CloudSecurity #RateLimiting #CyberSecurity
 
 ![Public API protection architecture with AWS WAF rate-based rules, Amazon API Gateway, Amazon Cognito authorizer, AWS Lambda, Amazon DynamoDB and Amazon CloudWatch](/images/report/blog3-public-api-protection-architecture.jpg)

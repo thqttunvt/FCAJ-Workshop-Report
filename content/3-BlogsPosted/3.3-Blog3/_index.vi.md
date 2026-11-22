@@ -10,39 +10,40 @@ pre: " <b> 3.3. </b> "
 
 **Đăng trên AWS Study Group:** [Xem bài viết gốc trên Facebook](https://www.facebook.com/groups/awsstudygroupfcj/posts/2339564356808523)
 
-Một tình huống khá quen thuộc: khách hàng đăng yêu cầu dịch vụ, hệ thống cần tìm các đối tác phù hợp và gửi lời mời báo giá. Nhưng đối tác lại đang offline. Họ không mở app, không có mạng, có khi điện thoại còn đang nằm úp trên bàn.
+Một API public thì người dùng phải truy cập được từ Internet. Nhưng public không đồng nghĩa với việc backend phải nhận vô hạn request từ một client, một IP hay một nhóm request bất thường.
 
-Vậy ta có cần chờ họ online rồi mới gửi lời mời được không? Không cần. Hãy thử xây một hệ thống mà backend vẫn làm việc bình thường ngay cả khi người nhận chưa xuất hiện.
+Hãy thử hình dung một endpoint đăng nhập hoặc gửi mã xác minh. Một client có thể gửi request liên tục, đội chi phí lên, làm nghẽn backend, hoặc khiến người dùng thật khó dùng dịch vụ. Nếu chỉ trông vào frontend để giới hạn số lần bấm, người khác vẫn có thể gọi thẳng vào API.
 
-**Kiến trúc đề xuất**
+**Giải quyết thế nào?**
 
-1. Khách hàng tạo công việc qua Amazon API Gateway.  
-2. AWS Lambda lưu công việc vào DynamoDB và phát sự kiện `JobCreated` tới Amazon EventBridge.  
-3. EventBridge chuyển sự kiện vào Amazon SQS để xử lý bất đồng bộ.  
-4. Một Lambda Matcher tìm danh sách đối tác phù hợp qua GSI của DynamoDB, dựa trên khu vực và loại dịch vụ.  
-5. Hệ thống lưu từng lời mời vào bảng Offers, dùng cặp `partnerId + jobId` làm định danh để chống trùng.  
-6. Amazon SNS gửi push notification như một lời nhắc, chứ không phải nơi lưu lời mời.
+Có thể dựng một lớp bảo vệ ở biên như sau:
 
-**Điểm mấu chốt**
+* Client gửi request đến Amazon API Gateway.
+* AWS WAF được gắn vào API Gateway stage để đánh giá request theo Web ACL.
+* WAF áp dụng các managed rule group phù hợp, cùng rate-based rule để giới hạn lưu lượng vượt ngưỡng trong một khoảng thời gian.
+* API Gateway dùng authorizer phù hợp, chẳng hạn Amazon Cognito hoặc Lambda authorizer, để xác thực người dùng ở những endpoint cần đăng nhập.
+* Backend Lambda tiếp tục kiểm tra quyền trên từng tài nguyên, vì xác thực thành công không thay thế được authorization.
+* Amazon CloudWatch thu thập metric và log để theo dõi request bị chặn, lỗi và lưu lượng tăng bất thường.
 
-Lời mời được lưu trước, thông báo gửi sau. Nên dù đối tác đang offline lúc công việc được tạo, lời mời vẫn nằm yên trong database. Khi họ mở app trở lại, frontend gọi `GET /my-offers` và backend trả về những lời mời đã lưu.
+**Rate limit không phải chiếc khiên tuyệt đối**
 
-Ta không cần hy vọng push notification lúc nào cũng đến nơi. Push chỉ là tiếng gõ cửa, còn DynamoDB mới là nơi giữ lá thư.
+Rate-based rule của WAF chỉ là một lớp giảm thiểu, không phải lời hứa rằng mọi cuộc tấn công đều bị chặn. Ngưỡng quá thấp thì chặn nhầm người dùng thật, ngưỡng quá cao thì gần như vô dụng. Một IP cũng không phải lúc nào cũng tương ứng với một người, nhất là khi nhiều người dùng chung một mạng NAT.
 
-Còn nếu EventBridge phát lại sự kiện, hoặc SQS giao một message nhiều lần thì sao? Conditional Put sẽ ngăn việc tạo ra nhiều lời mời giống hệt nhau. Các message liên tục lỗi sau nhiều lần thử lại có thể được chuyển sang Dead-Letter Queue (DLQ) để kiểm tra sau.
+Với các endpoint nhạy cảm như đăng nhập, gửi OTP hay khôi phục mật khẩu, nên kết hợp nhiều tín hiệu: IP, danh tính đã xác thực, hành vi theo từng tài khoản và giới hạn ở tầng ứng dụng. Ngoài ra, đừng ghi token, mật khẩu hay mã OTP vào log để phục vụ phân tích.
 
 **Cần kiểm chứng điều gì?**
 
-* Tạo một công việc khi đối tác đang offline.  
-* Xác nhận lời mời vẫn được lưu trong DynamoDB.  
-* Mở app sau đó và xác nhận lời mời hiển thị chính xác.  
-* Replay cùng một event nhiều lần, kiểm tra số lượng offer không bị nhân đôi.  
-* Thử một message lỗi để kiểm tra định tuyến sang DLQ.
+* Gửi request ở mức bình thường và xác nhận người dùng hợp lệ vẫn truy cập được.
+* Tạo lưu lượng thử nghiệm vượt ngưỡng trong môi trường kiểm soát, xác nhận WAF bắt đầu áp dụng hành động đã cấu hình.
+* Xem metric và log để phân biệt request được cho qua, bị WAF chặn và bị backend từ chối.
+* Thử cho nhiều người dùng chung một IP để đánh giá nguy cơ chặn nhầm.
+* Xác nhận endpoint yêu cầu đăng nhập vẫn từ chối request thiếu token hoặc có token không hợp lệ.
+* Kiểm tra backend vẫn có authorization riêng, không coi WAF là cơ chế phân quyền dữ liệu.
 
-Một hệ thống bền bỉ hoàn thành trọn vẹn công việc của backend mà không phụ thuộc vào việc người dùng online 24/7.
+WAF đứng ở cửa giúp bớt đi những người gây rối. Nhưng việc kiểm tra ai được vào phòng nào vẫn là của ứng dụng.
 
-*Lưu ý: Đây là mô hình kiến trúc tham khảo độc lập chia sẻ trên AWS Study Group (tách biệt với stack 12 dịch vụ của ReLoop) và thiết kế kiểm thử đề xuất, không phải báo cáo triển khai sản xuất thực tế.*
+*Lưu ý: đây là kiến trúc và thiết kế kiểm thử đề xuất, chưa phải kết quả triển khai thực tế.*
 
-#AWS #EventDrivenArchitecture #SQS #EventBridge #Lambda #DynamoDB #SNS
+#AWS #WAF #APIGateway #CloudSecurity #RateLimiting #CyberSecurity
 
 ![Kiến trúc bảo vệ API public với rate-based rule của AWS WAF, Amazon API Gateway, Amazon Cognito authorizer, AWS Lambda, Amazon DynamoDB và Amazon CloudWatch](/images/report/blog3-public-api-protection-architecture.jpg)

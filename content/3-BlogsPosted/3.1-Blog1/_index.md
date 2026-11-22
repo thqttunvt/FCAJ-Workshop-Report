@@ -10,34 +10,39 @@ pre: " <b> 3.1. </b> "
 
 **Published on AWS Study Group:** [Read original Facebook post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2330733614358264)
 
-Imagine a platform connecting customers with service partners, where each job can only be accepted by one person. Partner A and Partner B see the same listing, and both click "Accept Job" almost simultaneously.
+After a security incident, the question is not only "what happened?" but also "can we trust the data we use to answer that question?". If logs live in the same account, under the same administrative permissions, and can be modified or deleted by the very workload that has been compromised, the investigation trail can disappear exactly when we need it most.
 
-If the backend handles it naively:
+Centralized logging is necessary, but centralization alone is not enough. We also need to separate log-writing permissions from system administration permissions, and have a mechanism to protect the stored data.
 
-1. Check if the job is still available.  
-2. If available, update the assignee.
+**Proposed Architecture**
 
-Congratulations, you've just assigned two owners to a single job. One chair, two people trying to sit at once.
+* AWS CloudTrail records API activity in the account and delivers logs to a dedicated Amazon S3 bucket.
+* The log bucket lives in a separate archive account or is managed by the security team, and does not share administrative permissions with the workload.
+* Enable S3 Versioning and configure S3 Object Lock with a retention mode that matches your compliance requirements.
+* Use AWS KMS to manage encryption keys, with key management permissions separated from log read and write permissions.
+* Amazon EventBridge receives events of interest, such as changes to the audit configuration or sensitive administrative actions.
+* EventBridge forwards these signals to Amazon SNS or a response workflow to alert the operations team.
+* Amazon CloudWatch is used for application logs and operational alarms, while CloudTrail remains the audit source for AWS API activity.
 
-**How to Solve This?**
+**Immutable Does Not Mean Everything Is Automatically Safe**
 
-Instead of having two sides negotiate with each other, we appoint Amazon DynamoDB as the strict gatekeeper:
+S3 Object Lock must be configured correctly from the start. Governance mode allows principals with special permissions to bypass retention. Compliance mode is much stricter, but it also needs careful thought because data may not be deletable before the retention period ends. The retention period must balance legal requirements, storage costs, and operational processes.
 
-* AWS Lambda receives the request and builds a transaction using `TransactWriteItems`.  
-* DynamoDB executes two atomic operations in the same transaction: it updates the job status only if its current state is `OPEN`, and simultaneously persists an Idempotency Key to guard against duplicate processing.  
-* Only one transaction wins the job. The competing transaction receives a conditional check failure/conflict error.  
-* If the winner resends the request due to a network timeout, the backend reads the stored idempotency result rather than re-executing side effects.
-
-The elegance here is that we don't need to guess who clicked a few milliseconds faster. The database decides deterministically based on real-time state at the exact moment of write.
+The audit configuration path must be protected as well. If someone can turn off CloudTrail, change the destination bucket, or modify storage permissions without being detected, the system still has a blind spot.
 
 **What Needs Verification?**
 
-Fire two concurrent requests from different users targeting the same job record. The expected outcome is that exactly one user claims the job. Then, replay the winner's request and verify that no duplicate side effects are triggered.
+* Generate a test AWS API activity and confirm that CloudTrail records the event in the destination bucket.
+* Use the application role to try deleting or modifying a log object, and confirm the action is denied as configured.
+* Test retention and Object Lock with a test object, not with production logs.
+* Change the audit configuration in a test environment and confirm that an alert is raised.
+* Verify that log read permissions, log write permissions, retention management permissions, and KMS key management permissions are separated.
+* Test the process for restoring and retrieving logs when an investigation is needed.
 
-One transaction, one winner, no human referee required.
+Logs do not prevent incidents from happening. But trustworthy logs mean you do not have to investigate an incident using traces that the intruder may have already deleted.
 
-*Note: This is a proposed architecture and testing design pattern, not a live production deployment report.*
+*Note: This is a proposed architecture and testing design, not the result of an actual production deployment.*
 
-#AWS #DynamoDB #Serverless #RaceCondition #Engineering
+#AWS #CloudTrail #S3ObjectLock #KMS #IncidentResponse #SecurityLogging
 
 ![Tamper-resistant audit trail architecture with AWS CloudTrail, S3 Object Lock, AWS KMS, Amazon EventBridge and Amazon SNS](/images/report/blog1-audit-trail-architecture.jpg)
