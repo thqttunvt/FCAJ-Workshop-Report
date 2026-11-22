@@ -1,4 +1,4 @@
-baseURL = "https://madlyham.github.io/FCAJ-Workshop-Report/"
+baseURL = "https://thqttunvt.github.io/FCAJ-Workshop-Report/"
 relativeURLs = false
 canonifyURLs = true
 defaultContentLanguage = "en"
@@ -18,8 +18,8 @@ home = [ "HTML", "RSS", "JSON"]
   themeVariant = "workshop"
   # Git hub repo link
   editURL = ""
-  description = "Internship Report - Kung Cam Thanh - First Cloud AI Journey (FCAJ)"
-  author = "madlyhamm@gmail.com"
+  description = "Internship Report - Tran Hoang Quoc Trung - First Cloud AI Journey (FCAJ)"
+  author = "trantruns789@gmail.com"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false

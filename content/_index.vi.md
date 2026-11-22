@@ -9,11 +9,11 @@ chapter: false
 
 ## Thông tin sinh viên
 
-&emsp; **Họ và tên:** Kung Cẩm Thành
+&emsp; **Họ và tên:** Trần Hoàng Quốc Trung
 
-&emsp; **Số điện thoại:** 0908122927
+&emsp; **Số điện thoại:** 0395092375
 
-&emsp; **Email:** madlyhamm@gmail.com
+&emsp; **Email:** trantruns789@gmail.com
 
 &emsp; **Trường:** Đại học FPT
 

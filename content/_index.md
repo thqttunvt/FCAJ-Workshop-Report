@@ -9,11 +9,11 @@ chapter: false
 
 ## Student Information
 
-&emsp; **Full Name:** Kung Cẩm Thành
+&emsp; **Full Name:** Trần Hoàng Quốc Trung
 
-&emsp; **Phone Number:** 0908122927
+&emsp; **Phone Number:** 0395092375
 
-&emsp; **Email:** madlyhamm@gmail.com
+&emsp; **Email:** trantruns789@gmail.com
 
 &emsp; **University:** FPT University
 
