@@ -48,4 +48,4 @@ Có hộ chiếu hợp lệ không có nghĩa là bạn sở hữu mọi căn nh
 
 #AWS #Cognito #APIGateway #DynamoDB #CyberSecurity #Authorization
 
-![Sơ đồ phân quyền với Amazon Cognito, API Gateway JWT Authorizer và kiểm tra quyền sở hữu trên DynamoDB](/images/report/image2.png)
+![Kiến trúc quản lý vòng đời secret với AWS Secrets Manager, Lambda xoay vòng, AWS KMS, IAM quyền tối thiểu, AWS CloudTrail và Amazon CloudWatch](/images/report/blog2-secrets-lifecycle-architecture.jpg)

@@ -48,4 +48,4 @@ Holding a valid passport doesn't mean you own every house in the city.
 
 #AWS #Cognito #APIGateway #DynamoDB #CyberSecurity #Authorization
 
-![Amazon Cognito, API Gateway JWT Authorizer, and DynamoDB conditional ownership check diagram](/images/report/image2.png)
+![Secret lifecycle architecture with AWS Secrets Manager, rotation Lambda, AWS KMS, least-privilege IAM, AWS CloudTrail and Amazon CloudWatch](/images/report/blog2-secrets-lifecycle-architecture.jpg)
