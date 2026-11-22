@@ -48,4 +48,6 @@ Chương trình có sự góp mặt của các chuyên gia công nghệ và kỹ
 
 ### **Hình ảnh sự kiện**
 
-![Sự kiện khởi động Buildrathon – Code the Future cùng CMC Global tại Văn phòng AWS Việt Nam](/images/report/image4.png)
+![Bên băng-rôn talkshow "The Thinking Behind Building the Bot", sự kiện Buildrathon Kickoff (26/09/2026)](/images/report/event1-buildrathon-banner.jpg)
+
+![Chụp ảnh lưu niệm sau talkshow Buildrathon Kickoff tại Văn phòng AWS Việt Nam](/images/report/event1-buildrathon-group.jpg)

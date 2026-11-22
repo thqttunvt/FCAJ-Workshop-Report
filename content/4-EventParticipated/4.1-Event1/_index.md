@@ -48,4 +48,6 @@ The event featured industry professionals and experienced engineers from AWS and
 
 ### **Event Photos**
 
-![Buildrathon Kickoff – Code the Future with CMC Global at AWS Vietnam Office](/images/report/image4.png)
+![At the "The Thinking Behind Building the Bot" talkshow banner, Buildrathon Kickoff (26/09/2026)](/images/report/event1-buildrathon-banner.jpg)
+
+![Group photo after the Buildrathon Kickoff talkshow at AWS Vietnam Office](/images/report/event1-buildrathon-group.jpg)
