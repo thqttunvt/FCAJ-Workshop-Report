@@ -45,4 +45,4 @@ Một hệ thống bền bỉ hoàn thành trọn vẹn công việc của backe
 
 #AWS #EventDrivenArchitecture #SQS #EventBridge #Lambda #DynamoDB #SNS
 
-![Kiến trúc hướng sự kiện hỗ trợ đối tác offline với EventBridge, SQS, Lambda, DynamoDB và SNS](/images/report/image3.png)
+![Kiến trúc bảo vệ API public với rate-based rule của AWS WAF, Amazon API Gateway, Amazon Cognito authorizer, AWS Lambda, Amazon DynamoDB và Amazon CloudWatch](/images/report/blog3-public-api-protection-architecture.jpg)

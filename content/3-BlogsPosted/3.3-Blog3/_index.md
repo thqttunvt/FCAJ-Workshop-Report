@@ -45,4 +45,4 @@ A resilient system finishes its work without depending on 24/7 client connectivi
 
 #AWS #EventDrivenArchitecture #SQS #EventBridge #Lambda #DynamoDB #SNS
 
-![Event-driven offline-tolerant partner matching architecture with EventBridge, SQS, Lambda, DynamoDB, and SNS](/images/report/image3.png)
+![Public API protection architecture with AWS WAF rate-based rules, Amazon API Gateway, Amazon Cognito authorizer, AWS Lambda, Amazon DynamoDB and Amazon CloudWatch](/images/report/blog3-public-api-protection-architecture.jpg)
