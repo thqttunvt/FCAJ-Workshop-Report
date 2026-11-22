@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# You Have a Valid Passport, But Do You Have the Right to Renovate Your Neighbor's House?
+# Passwords in Source Code: Convenient Once, Costly Many Times
 
-**Published on AWS Study Group:** [Read original Facebook post](https://www.facebook.com/share/p/1FM4NPiHjC/)
+**Published on AWS Study Group:** [Read original Facebook post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2331503327614626)
 
 There is an intriguing security vulnerability in web application development that is easy to overlook. A user signs in successfully, provides a cryptographically valid token, and the API responds normally. But does that mean they have the right to edit every post in the system? Absolutely not.
 

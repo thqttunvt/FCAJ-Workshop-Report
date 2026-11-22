@@ -13,8 +13,8 @@ Trong kỳ thực tập, tôi đã biên soạn và đăng tải 3 bài viết k
 * **[Blog 1: Nếu kẻ xâm nhập xóa được log, bạn còn điều tra bằng gì?](3.1-blog1/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2330733614358264)  
   Bảo vệ log audit khỏi bị xóa hoặc chỉnh sửa để phục vụ điều tra sự cố trên AWS với AWS CloudTrail, S3 Object Lock, AWS KMS và cảnh báo qua Amazon EventBridge.
 
-* **[Blog 2: Bạn có hộ chiếu hợp lệ, vậy có được quyền sửa nhà hàng xóm không?](3.2-blog2/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/share/p/1FM4NPiHjC/)  
-  Phân biệt Authentication và Authorization trong phát triển ứng dụng với Amazon Cognito, API Gateway JWT Authorizer và DynamoDB `ConditionExpression`.
+* **[Blog 2: Mật khẩu nằm trong source code: tiện một lần, trả giá nhiều lần](3.2-blog2/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2331503327614626)  
+  Loại bỏ mật khẩu nằm trong source code và quản lý vòng đời secret trên AWS với AWS Secrets Manager, AWS KMS, IAM Role theo nguyên tắc quyền tối thiểu và AWS CloudTrail.
 
 * **[Blog 3: Đối tác đã tắt ứng dụng, nhưng công việc vẫn phải tìm đến họ](3.3-blog3/)** · [Bài đăng trên AWS Study Group](https://www.facebook.com/share/p/1Gs4wyyVsv/)  
   Kiến trúc xử lý sự kiện bất đồng bộ hỗ trợ đối tác offline với Amazon EventBridge, SQS, Lambda và DynamoDB.

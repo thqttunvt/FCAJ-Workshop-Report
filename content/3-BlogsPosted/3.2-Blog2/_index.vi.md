@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# Bạn có hộ chiếu hợp lệ, vậy có được quyền sửa nhà hàng xóm không?
+# Mật khẩu nằm trong source code: tiện một lần, trả giá nhiều lần
 
-**Đăng trên AWS Study Group:** [Xem bài viết gốc trên Facebook](https://www.facebook.com/share/p/1FM4NPiHjC/)
+**Đăng trên AWS Study Group:** [Xem bài viết gốc trên Facebook](https://www.facebook.com/groups/awsstudygroupfcj/posts/2331503327614626)
 
 Có một lỗi bảo mật khá thú vị trong phát triển ứng dụng mà nhiều người dễ bỏ sót. Người dùng đăng nhập thành công, token hợp lệ, API trả dữ liệu bình thường. Nhưng điều đó có nghĩa là họ được quyền sửa mọi bài đăng trong hệ thống không? Tất nhiên là không.
 
