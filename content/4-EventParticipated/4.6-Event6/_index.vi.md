@@ -27,8 +27,8 @@ pre: " <b> 4.6. </b> "
 #### **Game Quiz cuối buổi**
 * Trò chơi Quiz.com trực tiếp khép lại buổi chia sẻ. Trò chơi thu hút hơn 100 người tham gia (119 người tại thời điểm chụp ảnh) và nhận được sự hưởng ứng rất nồng nhiệt.
 
-#### **Sự kiện được giới thiệu tại buổi chia sẻ (21–22/11/2026)**
-* Ban tổ chức giới thiệu thêm một sự kiện Cloud khác dành cho sinh viên diễn ra vào ngày 21–22/11/2026: **AWS Student Community Day Vietnam 2026**.
+#### **Sự kiện được giới thiệu tại buổi chia sẻ (23/11/2026)**
+* Ban tổ chức giới thiệu thêm một sự kiện Cloud khác dành cho sinh viên diễn ra vào ngày 23/11/2026: **AWS Student Community Day Vietnam 2026**.
 
 ### **Trải nghiệm sự kiện**
 
@@ -36,4 +36,4 @@ Rất vui khi thấy nhiều bạn sinh viên quan tâm đến Cloud. Các câu 
 
 ### **Hình ảnh sự kiện**
 
-![Tham gia game Quiz của Cloud Mastery trên Quiz.com (Ảnh: ChauLe)](/images/report/image13.jpg)
+![Tham gia game Quiz của Cloud Mastery trên Quiz.com](/images/report/image13.jpg)

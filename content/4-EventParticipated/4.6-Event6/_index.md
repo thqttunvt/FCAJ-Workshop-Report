@@ -27,8 +27,8 @@ pre: " <b> 4.6. </b> "
 #### **Quiz Game at the End**
 * A live Quiz.com game closed the session. Over 100 players joined (119 at the time of the photo) and the room was very lively.
 
-#### **Upcoming Event Announced at the Session (21–22/11/2026)**
-* The organizers highlighted another student-focused cloud event scheduled for 21–22/11/2026: **AWS Student Community Day Vietnam 2026**.
+#### **Upcoming Event Announced at the Session (23/11/2026)**
+* The organizers highlighted another student-focused cloud event scheduled for 23/11/2026: **AWS Student Community Day Vietnam 2026**.
 
 ### **Event Experience**
 
@@ -36,4 +36,4 @@ It was good to see so many students interested in cloud. The questions were real
 
 ### **Event Photos**
 
-![Joined the Cloud Mastery quiz game on Quiz.com (Photo: ChauLe)](/images/report/image13.jpg)
+![Joined the Cloud Mastery quiz game on Quiz.com](/images/report/image13.jpg)
