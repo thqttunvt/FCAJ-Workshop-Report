@@ -1,45 +1,43 @@
 ---
 title: "Nhật ký công việc Tuần 1"
-date: 2026-11-07
+date: 2026-11-25
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# **Nhật ký công việc Tuần 1 — Nền tảng AWS, Console, CLI, EC2, IAM và VPC**
+# **Nhật ký công việc Tuần 1 — Nhập môn FCAJ & Tự học nền tảng AWS: Hạ tầng toàn cầu, IAM, AWS CLI, VPC & EC2**
 
 ## **1. Mục tiêu tuần**
 
-* Làm quen với AWS Management Console, AWS CLI và Free Tier.
-* Khởi tạo và quản lý tài nguyên tính toán (EC2, EBS, Elastic IP) an toàn.
-* Ngừng dùng tài khoản root hằng ngày và dựng mạng cơ bản an toàn (IAM + VPC).
+- Tham gia khóa First Cloud AI Journey và hiểu cách hạ tầng toàn cầu của AWS được tổ chức (Region, Availability Zone).
+- Học các khái niệm cốt lõi mà mọi dự án AWS đều dựa vào: mô hình trách nhiệm chung, IAM, VPC và EC2.
+- Tự thử từng dịch vụ trên AWS Console để thấy các khái niệm đó trong thực tế.
 
 ## **2. Lịch trình thực hiện**
 
-| Ngày | Mô tả công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Thứ 2** | • Nhập môn chương trình First Cloud Journey; làm quen AWS Console, region, Availability Zone và giới hạn Free Tier | 14/09/2026 | 14/09/2026 | [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
-| **Thứ 3** | • Cài đặt và cấu hình AWS CLI v2 (profile, region mặc định `ap-southeast-1`); chạy các lệnh chỉ đọc đầu tiên | 15/09/2026 | 15/09/2026 | [Tài liệu AWS CLI](https://docs.aws.amazon.com/cli/) |
-| **Thứ 4** | • Thực hành: tạo EC2, gắn ổ EBS, gán Elastic IP, sau đó dừng/xóa để tránh phát sinh phí | 16/09/2026 | 16/09/2026 | [Tài liệu Amazon EC2](https://docs.aws.amazon.com/ec2/) |
-| **Thứ 5** | • IAM cơ bản: user, group, role, policy JSON; tạo IAM admin có MFA và cất giữ tài khoản root | 17/09/2026 | 17/09/2026 | [Tài liệu AWS IAM](https://docs.aws.amazon.com/iam/) |
-| **Thứ 6** | • VPC cơ bản: dựng VPC tùy chỉnh (`10.0.0.0/16`) với subnet public/private, Internet Gateway, route table, so sánh Security Group và NACL | 18/09/2026 | 18/09/2026 | [Tài liệu AWS VPC](https://docs.aws.amazon.com/vpc/) |
+| Ngày      | Mô tả công việc                                                                                                                                                                         | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                                                                             |
+| :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :-------------- | :------------------------------------------------------------------------------------------------------------- |
+| **Thứ 2** | • Tham gia buổi nhập môn FCAJ, làm quen các bạn trong khóa và đọc nội quy thực tập; tìm hiểu Region, Availability Zone, edge location và phạm vi của Free Tier                          | 14/09/2026   | 14/09/2026      | [Hạ tầng toàn cầu AWS](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html) |
+| **Thứ 3** | • Học IAM: user, group, role, policy JSON (`Effect`, `Action`, `Resource`), MFA, đặc quyền tối thiểu và lý do không dùng tài khoản root cho công việc hằng ngày                         | 15/09/2026   | 15/09/2026      | [Thực hành bảo mật IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)                  |
+| **Thứ 4** | • Tìm hiểu cách AWS CLI và SDK xác thực (credential, profile, region mặc định); tự chạy thử vài lệnh chỉ đọc để xem kết quả trả về                                                      | 16/09/2026   | 16/09/2026      | [Hướng dẫn AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)                    |
+| **Thứ 5** | • Học mạng VPC: dải CIDR, subnet public và private, Internet Gateway, NAT, route table, so sánh Security Group (stateful) với Network ACL (stateless); tự xem VPC mặc định trên Console | 17/09/2026   | 17/09/2026      | [Tài liệu Amazon VPC](https://docs.aws.amazon.com/vpc/)                                                        |
+| **Thứ 6** | • Học EC2: loại instance, AMI, ổ EBS, key pair, Elastic IP và cách EC2 tính phí; tự thử tạo một máy nhỏ rồi xóa để không bị tính phí tiếp                                               | 18/09/2026   | 18/09/2026      | [Tài liệu Amazon EC2](https://docs.aws.amazon.com/ec2/)                                                        |
 
 ## **3. Kết quả đạt được**
 
 ### **Cơ sở lý thuyết**
 
-* Hiểu mô hình trách nhiệm chia sẻ và cách region, Availability Zone mang lại tính sẵn sàng cao.
-* Nắm nguyên tắc quyền tối thiểu: chỉ cấp đúng quyền công việc cần.
-* Hiểu vì sao subnet private giúp cơ sở dữ liệu và máy chủ nội bộ tránh bị quét trực tiếp từ Internet.
+- Hiểu mô hình trách nhiệm chung: AWS bảo vệ hạ tầng đám mây, còn khách hàng bảo vệ những gì mình đưa lên (danh tính, dữ liệu, luật mạng).
+- Nắm nguyên tắc đặc quyền tối thiểu: mỗi danh tính chỉ có đúng quyền cần dùng, tài khoản root chỉ dành cho việc cấp tài khoản.
+- Hiểu vì sao subnet private giúp cơ sở dữ liệu và máy chủ nội bộ không bị truy cập trực tiếp từ Internet.
 
 ### **Cài đặt & Thiết lập môi trường**
 
-* Cấu hình AWS CLI v2 với profile riêng và region `ap-southeast-1`.
-* Tạo IAM admin có MFA; thông tin root được cất an toàn, không dùng hằng ngày.
-* VPC tùy chỉnh trải trên 2 Availability Zone với 2 subnet public và 2 subnet private.
+- Làm quen AWS Console và các trang chính của IAM, VPC, EC2 bằng cách tự khám phá.
+- Xóa hết những gì đã tạo khi thử nghiệm, không để tài nguyên nào chạy sau khi kết thúc tuần.
 
 ### **Kỹ năng thực hành & Vận hành**
 
-* Tạo, kết nối và dọn dẹp tài nguyên EC2 mà không để sót tài nguyên phát sinh phí.
-* Viết và kiểm thử policy IAM JSON chỉ cho phép đúng các thao tác đọc/ghi cần thiết.
-* Kiểm tra cô lập mạng: subnet public ra Internet qua IGW, subnet private không nhận kết nối từ ngoài vào.
+- Đọc được một policy IAM dạng JSON và biết nó cho phép hay chặn gì.
+- Giải thích được đường đi của một request tới máy trong subnet public (Internet Gateway → route table → Security Group).

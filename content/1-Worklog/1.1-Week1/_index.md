@@ -1,45 +1,43 @@
 ---
 title: "Week 1 Worklog"
-date: 2026-11-07
+date: 2026-11-25
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# **Week 1 Worklog — AWS Foundations, Console, CLI, EC2, IAM & VPC**
+# **Week 1 Worklog — FCAJ Onboarding & Self-Study of AWS Fundamentals: Global Infrastructure, IAM, AWS CLI, VPC & EC2**
 
 ## **1. Weekly Objectives**
 
-* Get familiar with the AWS Management Console, AWS CLI, and the Free Tier.
-* Launch and manage compute (EC2, EBS, Elastic IP) safely.
-* Stop using the root account day-to-day and build a basic secure network (IAM + VPC).
+- Join the First Cloud AI Journey cohort and understand how the AWS global infrastructure (Regions, Availability Zones) is organised.
+- Study the core ideas every AWS project depends on: the shared responsibility model, IAM, VPC and EC2.
+- Try each service on my own in the AWS Console to see how the concepts look in practice.
 
 ## **2. Weekly Execution Schedule**
 
-| Day | Task Description | Start Date | Completion Date | Reference Material |
-| :--- | :--- | :--- | :--- | :--- |
-| **Monday** | • Onboarding to the First Cloud Journey program; tour of the AWS Console, regions, Availability Zones, and Free Tier limits | 14/09/2026 | 14/09/2026 | [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
-| **Tuesday** | • Install and configure AWS CLI v2 (profiles, default region `ap-southeast-1`); run first read-only commands | 15/09/2026 | 15/09/2026 | [AWS CLI Docs](https://docs.aws.amazon.com/cli/) |
-| **Wednesday** | • Hands-on: launch an EC2 instance, attach an EBS volume, assign an Elastic IP, then stop/terminate to avoid charges | 16/09/2026 | 16/09/2026 | [Amazon EC2 Docs](https://docs.aws.amazon.com/ec2/) |
-| **Thursday** | • IAM basics: users, groups, roles, JSON policies; create an IAM admin user with MFA and lock away the root account | 17/09/2026 | 17/09/2026 | [AWS IAM Docs](https://docs.aws.amazon.com/iam/) |
-| **Friday** | • VPC basics: build a custom VPC (`10.0.0.0/16`) with public/private subnets, Internet Gateway, route tables, Security Groups vs NACLs | 18/09/2026 | 18/09/2026 | [AWS VPC Docs](https://docs.aws.amazon.com/vpc/) |
+| Day           | Task Description                                                                                                                                                                                         | Start Date | Completion Date | Reference Material                                                                                                  |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :------------------------------------------------------------------------------------------------------------------ |
+| **Monday**    | • Attend FCAJ onboarding, meet the cohort and read the internship rules; study Regions, Availability Zones, edge locations and what the Free Tier covers                                                 | 14/09/2026 | 14/09/2026      | [AWS Global Infrastructure](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html) |
+| **Tuesday**   | • Study IAM: users, groups, roles, JSON policies (`Effect`, `Action`, `Resource`), MFA, least privilege, and why the root user should not be used for daily work                                         | 15/09/2026 | 15/09/2026      | [IAM Security Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)                 |
+| **Wednesday** | • Study how the AWS CLI and SDKs authenticate (credentials, profiles, default region); try a few read-only commands on my own to see the responses                                                       | 16/09/2026 | 16/09/2026      | [AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)                        |
+| **Thursday**  | • Study VPC networking: CIDR blocks, public and private subnets, Internet Gateway, NAT, route tables, and Security Groups (stateful) vs Network ACLs (stateless); explore the default VPC in the Console | 17/09/2026 | 17/09/2026      | [Amazon VPC Docs](https://docs.aws.amazon.com/vpc/)                                                                 |
+| **Friday**    | • Study EC2: instance types, AMIs, EBS volumes, key pairs, Elastic IPs and how EC2 is billed; try launching a small instance on my own, then terminate it so it does not keep charging                   | 18/09/2026 | 18/09/2026      | [Amazon EC2 Docs](https://docs.aws.amazon.com/ec2/)                                                                 |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-* Understood the shared responsibility model and how regions and Availability Zones give high availability.
-* Learned the least-privilege principle: grant only the permissions a task needs.
-* Learned why private subnets keep databases and internal servers away from direct Internet scans.
+- Understood the shared responsibility model: AWS secures the cloud, and the customer secures what they put in it (identities, data, network rules).
+- Learned least privilege: an identity gets only the actions it needs, and the root user is kept for account-level tasks only.
+- Understood why private subnets keep databases and internal servers out of reach from the Internet.
 
 ### **Environment Setup & Configuration**
 
-* AWS CLI v2 configured with a named profile and region `ap-southeast-1`.
-* IAM admin user with MFA created; root credentials stored safely and not used for daily work.
-* Custom VPC spread across 2 Availability Zones with 2 public and 2 private subnets.
+- Got familiar with the AWS Console and the main pages of IAM, VPC and EC2 by exploring them myself.
+- Removed everything I created while trying things out, so no resource kept running after the week.
 
 ### **Practical Skills & Operations**
 
-* Launched, connected to, and cleaned up EC2 resources without leaving billable items running.
-* Wrote and tested IAM JSON policies that allow only the needed read/write actions.
-* Verified network isolation: public subnet reaches the Internet via the IGW, private subnet accepts no inbound traffic from outside.
+- Can read an IAM JSON policy and say what it allows or denies.
+- Can explain how a request reaches an instance in a public subnet (Internet Gateway → route table → Security Group).

@@ -1,44 +1,44 @@
 ---
 title: "Nhật ký công việc Tuần 12"
-date: 2026-11-22
+date: 2026-11-25
 weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-# **Nhật ký công việc Tuần 12 — Báo cáo cuối kỳ, demo trực tiếp và bàn giao [Dự kiến]**
+# **Nhật ký công việc Tuần 12 — Báo cáo cuối, Demo trực tiếp các luồng backend của tôi & Bàn giao [Dự kiến]**
 
-> **Trạng thái:** Dự kiến (tuần kế tiếp: 30/11/2026 – 04/12/2026; cập nhật ngày 22/11/2026).
+> **Trạng thái:** Dự kiến (tuần kế tiếp: 30/11/2026 – 04/12/2026; cập nhật ngày 25/11/2026).
 
 ## **1. Mục tiêu tuần**
 
-* Hoàn thiện tài liệu Workshop (`5.1`–`5.12`) và báo cáo thực tập cuối kỳ với đầy đủ dẫn chứng kiến trúc, chi phí và bảo mật đã xác thực.
-* Tổng duyệt và trình bày buổi demo trực tiếp trọn luồng cho các mentor.
-* Bàn giao dự án đầy đủ để nhóm và người tiếp nhận có thể vận hành độc lập trong thời hạn credit AWS.
+- Hoàn thiện báo cáo thực tập với kết quả đã kiểm chứng từ phần việc của tôi (mô hình dữ liệu, job nền, job AI, ghép chi nhánh, load test).
+- Demo các luồng backend tôi đã làm: AI tạo tin, ghép chi nhánh và đóng tin hết hạn.
+- Bàn giao ghi chú rõ ràng về các module của tôi để người khác vận hành và sửa được mà không cần tôi.
 
 ## **2. Lịch trình thực hiện**
 
-| Ngày | Mô tả công việc dự kiến | Ngày dự kiến | Trạng thái | Tài liệu tham khảo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Thứ 2** | • Rà soát và hoàn thiện hướng dẫn Workshop (`5.1`–`5.12`) — sơ đồ kiến trúc, các bước triển khai, xác thực và dọn dẹp — đồng bộ với `RELOOP_TECHNICAL_REFERENCE` | 30/11/2026 | Dự kiến | [Workshop](../../5-workshop/), [Repository ReLoop](https://github.com/madlyham/ReLoop) (`RELOOP_TECHNICAL_REFERENCE`) |
-| **Thứ 3** | • Hoàn thiện báo cáo thực tập cuối kỳ: kết quả xác thực trực tiếp, bảng chi phí **$11.70/tháng**, tổng kết gia cố bảo mật và bài học rút ra | 01/12/2026 | Dự kiến | [AWS Billing & Cost Explorer](https://docs.aws.amazon.com/cost-management/), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
-| **Thứ 4** | • Tổng duyệt demo trọn luồng trên hệ thống ReLoop bằng tài khoản kiểm thử trên hệ thống thật (AI điền tin, ghép tin, báo giá, giao dịch và đánh giá) | 02/12/2026 | Dự kiến | [Tài liệu Amazon Bedrock](https://docs.aws.amazon.com/bedrock/), [Tài liệu Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb/) |
-| **Thứ 5** | • Trình bày buổi demo trực tiếp cuối kỳ với các mentor AWS và ghi nhận góp ý | 03/12/2026 | Dự kiến | [Đề xuất](../../2-proposal/), [Workshop](../../5-workshop/) |
-| **Thứ 6** | • Bàn giao hoàn chỉnh (tài liệu, mã Terraform, runbook vận hành, báo cáo chi phí và credit hiệu lực đến 28/02/2027) và kết thúc kỳ thực tập | 04/12/2026 | Dự kiến | [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs), [Repository ReLoop](https://github.com/madlyham/ReLoop) |
+| Ngày      | Mô tả công việc dự kiến                                                                                                                            | Ngày dự kiến | Trạng thái | Tài liệu tham khảo                                                                                                                                                                                               |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Thứ 2** | • Viết phần của tôi trong báo cáo cuối: thiết kế khóa, hẹn giờ, ghép chi nhánh chạy nền và job AI, kèm lý do cho từng lựa chọn                     | 30/11/2026   | Dự kiến    | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
+| **Thứ 3** | • Hoàn thiện báo cáo: kết quả load test (`5xx` 26% → 0), bảng chi phí 11,70 USD/tháng và bài học rút ra                                            | 01/12/2026   | Dự kiến    | [Đề xuất](../../2-proposal/), [AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html)                                                                                  |
+| **Thứ 4** | • Tổng duyệt demo các luồng của tôi bằng tài khoản thử: AI tạo tin từ ảnh, ghép với chi nhánh gần, đóng tin hết hạn                                | 02/12/2026   | Dự kiến    | [Workshop 5.11](../../5-workshop/5.11-end-to-end-verification/)                                                                                                                                                  |
+| **Thứ 5** | • Trình bày các luồng của tôi trong buổi demo trực tiếp cuối cùng với mentor AWS và trả lời câu hỏi về thiết kế backend                            | 03/12/2026   | Dự kiến    | [Đề xuất](../../2-proposal/), [Workshop](../../5-workshop/)                                                                                                                                                      |
+| **Thứ 6** | • Bàn giao ghi chú về các module của tôi (định dạng khóa trong `keys.ts`, các loại mốc hẹn giờ, quy tắc ghép, giới hạn AI) và kết thúc kỳ thực tập | 04/12/2026   | Dự kiến    | [Repository ReLoop](https://github.com/madlyham/ReLoop)                                                                                                                                                          |
 
 ## **3. Kết quả dự kiến**
 
 ### **Cơ sở lý thuyết**
 
-* Củng cố bài học rằng tài liệu tốt là một phần không thể thiếu của sản phẩm, giúp người tiếp nhận có thể vận hành độc lập và mở rộng hệ thống dễ dàng.
-* Tổng kết hành trình 12 tuần thực tập trên AWS — từ máy chủ EC2 đầu tiên đến một sản phẩm serverless bảo mật hoàn chỉnh.
+- Củng cố bài học: tài liệu rõ ràng là một phần của sản phẩm, người khác phải vận hành được code của tôi mà không cần tôi.
+- Tổng kết chặng đường 12 tuần từ tự học kiến thức AWS cơ bản đến xây dựng các job nền của một backend serverless.
 
 ### **Cài đặt & Thiết lập môi trường**
 
-* Bộ hướng dẫn Workshop (`5.1`–`5.12`), báo cáo cuối kỳ và gói tài liệu bàn giao được lưu trữ đầy đủ trong repository.
-* Stack ReLoop 12 dịch vụ (+ IAM) duy trì hoạt động ổn định trong thời hạn credit AWS (tới 28/02/2027).
+- Báo cáo cuối và ghi chú bàn giao cho các module của tôi đã hoàn tất.
+- Các module của tôi chạy trên stack ReLoop trong thời hạn credit AWS (đến 28/02/2027).
 
 ### **Kỹ năng thực hành & Vận hành**
 
-* Trình diễn thành công buổi demo trực tiếp trọn luồng: AI điền tin, ghép tin chạy nền, báo giá, giao dịch và đánh giá.
-* Giải trình rõ ràng các đánh đổi về kiến trúc, chi phí ($11.70/tháng) và bảo mật trước câu hỏi của mentor.
+- Demo trực tiếp trôi chảy các luồng của tôi.
+- Giải thích rõ các đánh đổi trong phần backend của tôi (một bảng, hẹn giờ theo ngăn giờ, job bất đồng bộ, ghép bằng geohash) khi mentor hỏi.

@@ -1,31 +1,31 @@
 ---
 title: "Worklog"
-date: 2026-11-22
+date: 2026-11-25
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
-During my 12-week internship at Amazon Web Services Vietnam (Workforce Bootcamp - First Cloud AI Journey, from 14/09/2026 to 04/12/2026; currently completed through Week 10 with Weeks 11–12 planned), I participated in foundational cloud architecture training, hands-on serverless labs, and the engineering lifecycle of the **ReLoop** circular marketplace capstone project for used and broken electronics.
+This worklog covers my 12-week internship at Amazon Web Services Vietnam (Workforce Bootcamp - First Cloud AI Journey, from 14/09/2026 to 04/12/2026). Weeks 1–10 are complete; Weeks 11–12 are planned and marked as such. I spent the first two weeks studying AWS foundations and serverless services on my own and trying them in the Console. After that I worked as the **Backend Engineer** on **ReLoop**, a serverless marketplace on AWS where people sell used or broken electronics to nearby repair shops, resellers and recyclers. My part was the DynamoDB key design, the business rules, the background AI job, the scan-free timers, branch matching and the AI daily cap. Each week lists what I did, day by day.
 
-In parallel with our weekly engineering sprint deliverables, I actively represented the team and participated in **6 major technology conferences, executive roundtables, and community workshops** hosted by AWS Vietnam and industry partners (cross-referenced throughout the schedule and detailed in the [Events Participated](../4-eventparticipated/) section).
+Alongside the project I attended **6 events** hosted by AWS Vietnam and its partners. Each one is cross-referenced in the week it happened and described in [Events Participated](../4-eventparticipated/).
 
 ### Weekly Worklog Overview
 
-* **Week 1:** [AWS Foundations, Console, CLI, EC2, IAM & VPC](1.1-week1/)
-* **Week 2:** [Serverless Basics (S3, DynamoDB, Lambda, API Gateway) & Buildrathon Kickoff](1.2-week2/)  
-  *(Cross-ref: [Event 1: Buildrathon – Kickoff: Code the Future with CMC Global](../4-eventparticipated/4.1-event1/) on 26/09/2026)*
-* **Week 3:** [ReLoop Specification, 45 Business Decisions, AI Day Watch Party & Dr. Werner Vogels Fireside](1.3-week3/)  
-  *(Cross-ref: [Event 2: AWS Cloud and AI Day Hanoi – Watch Party](../4-eventparticipated/4.2-event2/) on 29/09/2026 & [Event 3: Fireside Chat with Dr. Werner Vogels](../4-eventparticipated/4.3-event3/) on 02/10/2026)*
-* **Week 4:** [ReLoop Architecture, Proposal Part 1 & Start of Development](1.4-week4/)
-* **Week 5:** [Secure S3 Uploads, Rekognition Moderation & AI Listing with Bedrock Nova Pro](1.5-week5/)
-* **Week 6:** [Terraform Dev Environment, Full Market Flow on AWS & Cloud & AI Meetup](1.6-week6/)  
-  *(Cross-ref: [Event 4: Cloud & AI Infrastructure Meetup](../4-eventparticipated/4.4-event4/) on 24/10/2026)*
-* **Week 7:** [New UI, Prompt-Injection Defense, Switch to Kimi K3 & Smart Plushies Community](1.7-week7/)  
-  *(Cross-ref: [Event 5: Smart Plushies for Children – In Collaboration with Operation Smile Vietnam](../4-eventparticipated/4.5-event5/) on 26/10/2026)*
-* **Week 8:** [Background Matching, QA Rounds, WAF & Developer Reference](1.8-week8/)
-* **Week 9:** [Security Review, Hardening Fixes, Proposal Part 2 & Cloud Mastery Event](1.9-week9/)  
-  *(Cross-ref: [Event 6: Cloud Mastery – Cloud Sharing Session for Students](../4-eventparticipated/4.6-event6/) on 14/11/2026)*
-* **Week 10:** [Load Test, Throttling Fix, Single Deploy Workflow & Live Workshop Verification](1.10-week10/)
-* **Week 11:** [Resource Audit, Unused-Asset Cleanup & Cost Review [Planned]](1.11-week11/)
-* **Week 12:** [Final Report, Live Demo & Handover [Planned]](1.12-week12/)
+- **Week 1:** [FCAJ Onboarding & Self-Study of AWS Fundamentals: Global Infrastructure, IAM, AWS CLI, VPC & EC2](1.1-week1/)
+- **Week 2:** [Self-Study of Serverless Services (S3, DynamoDB, Lambda, API Gateway), AWS Cost Basics & Buildrathon Kickoff](1.2-week2/)  
+  _(Cross-ref: [Event 1: Buildrathon – Kickoff: Code the Future with CMC Global](../4-eventparticipated/4.1-event1/) on 26/09/2026)_
+- **Week 3:** [ReLoop Specification Review, Backend Business Rules, AI Day Watch Party & Fireside Chat with Dr. Werner Vogels](1.3-week3/)  
+  _(Cross-ref: [Event 2: AWS Cloud and AI Day Hanoi – Watch Party](../4-eventparticipated/4.2-event2/) on 29/09/2026 & [Event 3: Fireside Chat with Dr. Werner Vogels](../4-eventparticipated/4.3-event3/) on 02/10/2026)_
+- **Week 4:** [DynamoDB Access Patterns, Single-Table Key Design, Proposal Part 1 & keys.ts](1.4-week4/)
+- **Week 5:** [Background AI Listing Job: aiService.ts, Async Lambda Self-Invoke & AI Output Validation](1.5-week5/)
+- **Week 6:** [Scan-Free Background Timers (timers.ts), EventBridge 15-Minute Sweep & Cloud & AI Infrastructure Meetup](1.6-week6/)  
+  _(Cross-ref: [Event 4: Cloud & AI Infrastructure Meetup](../4-eventparticipated/4.4-event4/) on 24/10/2026)_
+- **Week 7:** [Smart Plushies Community Event, AI Job Updates for Kimi K3 & Stale-Job Guard](1.7-week7/)  
+  _(Cross-ref: [Event 5: Smart Plushies for Children – In Collaboration with Operation Smile Vietnam](../4-eventparticipated/4.5-event5/) on 26/10/2026)_
+- **Week 8:** [Background Branch Matching with Geohash & Haversine, AI Daily Cap & AI Label History](1.8-week8/)
+- **Week 9:** [Proposal Part 2 Backend Sections, Cost Explorer Review & Cloud Mastery Event](1.9-week9/)  
+  _(Cross-ref: [Event 6: Cloud Mastery – Cloud Sharing Session for Students](../4-eventparticipated/4.6-event6/) on 14/11/2026)_
+- **Week 10:** [Load-Test Re-run: 5xx from 26% to 0, Throttling Check & Results Write-up](1.10-week10/)
+- **Week 11:** [Cleanup of My Leftover Resources, Module Re-test & Final Cost Check [Planned]](1.11-week11/)
+- **Week 12:** [Final Report, Live Demo of My Backend Flows & Handover [Planned]](1.12-week12/)

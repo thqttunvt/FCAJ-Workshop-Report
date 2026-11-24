@@ -1,43 +1,44 @@
 ---
 title: "Nhật ký công việc Tuần 3"
-date: 2026-11-07
+date: 2026-11-25
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-# **Nhật ký công việc Tuần 3 — Đặc tả ReLoop, 45 quyết định nghiệp vụ, Watch Party AI Day và Tọa đàm TS. Werner Vogels**
+# **Nhật ký công việc Tuần 3 — Rà soát đặc tả ReLoop, Quy tắc nghiệp vụ backend, AI Day Watch Party & Fireside Chat với Dr. Werner Vogels**
 
 ## **1. Mục tiêu tuần**
 
-* Chuyển bản đặc tả ReLoop v1.0 thành các quyết định nghiệp vụ rõ ràng, có văn bản.
-* Thống nhất cách làm việc của nhóm (vai trò, quy tắc triển khai, quyền truy cập AWS) và chuẩn bị repository trống + CI cho giai đoạn phát triển ở Tuần 4.
-* Tham dự Sự kiện 2 (Watch Party AWS Cloud and AI Day Hanoi) và Sự kiện 3 (Tọa đàm cùng Tiến sĩ Werner Vogels).
+- Đọc đặc tả ReLoop v1.0 dưới góc nhìn backend và ghi lại mọi câu hỏi ảnh hưởng tới dữ liệu hoặc API.
+- Viết các quy tắc backend (trạng thái, ai được đổi trạng thái, cách lưu tiền) vào sổ quyết định chung QĐ-01 → QĐ-45.
+- Nhận vai trò **Backend Engineer** trong nhóm.
+- Tham gia Sự kiện 2 (AWS Cloud and AI Day Hanoi – Watch Party) và Sự kiện 3 (Fireside Chat với Dr. Werner Vogels).
 
 ## **2. Lịch trình thực hiện**
 
-| Ngày | Mô tả công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Thứ 2** | • Đọc trọn bản đặc tả v1.0 (1.189 đoạn); liệt kê 58 điểm còn thiếu trong đặc tả và câu hỏi mở | 28/09/2026 | 28/09/2026 | [Repository ReLoop](https://github.com/madlyham/ReLoop), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
-| **Thứ 3** | • Tham dự [Sự kiện 2: AWS Cloud and AI Day Hanoi – Sự kiện Watch Party TP.HCM](../../4-eventparticipated/4.2-event2/) (08:00 – 17:00 tại Văn phòng AWS Việt Nam, Bitexco Tầng 26). Tìm hiểu sâu về AI Agent doanh nghiệp, kỹ nghệ nền tảng và tối ưu chi phí FinOps. | 29/09/2026 | 29/09/2026 | [Sự kiện 2](../../4-eventparticipated/4.2-event2/), [AWS Billing & Cost Explorer](https://docs.aws.amazon.com/cost-management/) |
-| **Thứ 4** | • Xác định vai trò người dùng (Khách, Đối tác cấp 1, Đối tác cấp 2, Admin, Admin tài chính) và cùng nhóm xử lý các điểm còn thiếu trong đặc tả | 30/09/2026 | 30/09/2026 | [Tài liệu Amazon Cognito](https://docs.aws.amazon.com/cognito/), [Repository ReLoop](https://github.com/madlyham/ReLoop) |
-| **Thứ 5** | • Viết 45 quyết định nghiệp vụ (QĐ-01 → QĐ-45); tạo Git repository trống và mẫu CI GitHub Actions (typecheck + test cho mỗi pull request), sẵn sàng cho giai đoạn phát triển | 01/10/2026 | 01/10/2026 | [Tài liệu GitHub Actions](https://docs.github.com/actions), [Repository ReLoop](https://github.com/madlyham/ReLoop) |
-| **Thứ 6** | • Tham dự [Sự kiện 3: Trò chuyện thân mật cùng TS. Werner Vogels](../../4-eventparticipated/4.3-event3/) (10:30 – 12:00 tại Bitexco Financial Tower; Keynote bởi CTO Amazon). Thống nhất phân công 5 người (vai trò của tôi: Team Lead — đồng thời phụ trách backend AI, hạ tầng Terraform và tài liệu kỹ thuật) và quy tắc triển khai: một luồng triển khai duy nhất, mỗi thành viên một IAM user. | 02/10/2026 | 02/10/2026 | [Sự kiện 3](../../4-eventparticipated/4.3-event3/), [Tài liệu AWS IAM](https://docs.aws.amazon.com/iam/) |
+| Ngày      | Mô tả công việc                                                                                                                                                                                                                                                                                                                                                                        | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                                                                                                                    |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Thứ 2** | • Đọc đặc tả v1.0 dài 1.189 đoạn và liệt kê các câu hỏi backend: tin đăng có những trạng thái nào, ai được xem báo giá, lưu giá tiền ra sao, giao dịch bị hủy thì xử lý thế nào                                                                                                                                                                                                        | 28/09/2026   | 28/09/2026      | [Đề xuất](../../2-proposal/), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)             |
+| **Thứ 3** | • Tham gia [Sự kiện 2: AWS Cloud and AI Day Hanoi – Watch Party](../../4-eventparticipated/4.2-event2/) (08:00 – 17:00 tại văn phòng AWS Việt Nam, tầng 26, Bitexco Financial Tower). Các phiên về agentic AI, platform engineering và FinOps cho tôi thấy cần chốt mức chi phí trước khi chọn công cụ                                                                                 | 29/09/2026   | 29/09/2026      | [Sự kiện 2](../../4-eventparticipated/4.2-event2/), [AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html) |
+| **Thứ 4** | • Ánh xạ mỗi vai trò người dùng (Khách, Đối tác cấp 1, Đối tác cấp 2, Admin, Finance Admin) với các hành động API được phép gọi; bảng này về sau thành 4 group Cognito `Admins`, `FinanceAdmins`, `Partners`, `Owners`                                                                                                                                                                 | 30/09/2026   | 30/09/2026      | [Group trong Cognito User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html)                        |
+| **Thứ 5** | • Viết các quyết định backend vào sổ quyết định: trạng thái tin đăng (`PENDING_REVIEW` → `ACTIVE` → `MATCHED` → `COMPLETED` / `EXPIRED` / `CANCELLED`), trạng thái báo giá và giao dịch, bên nào (`OWNER`, `PARTNER`, `ADMIN`, `SYSTEM`) được thực hiện từng bước chuyển, và mọi giá tiền lưu dạng số nguyên VND                                                                       | 01/10/2026   | 01/10/2026      | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/domain/stateMachines.ts`)                                         |
+| **Thứ 6** | • Tham gia [Sự kiện 3: Fireside Chat with Dr. Werner – Navigating the Future of Cloud & AI in Vietnam](../../4-eventparticipated/4.3-event3/) (10:30 – 12:00 tại văn phòng AWS Việt Nam, tầng 26, Bitexco Financial Tower). Câu "Everything fails, all the time" của Dr. Werner Vogels làm tôi nhớ nhất. Nhận vai trò **Backend Engineer**: tầng dữ liệu DynamoDB và quy tắc nghiệp vụ | 02/10/2026   | 02/10/2026      | [Sự kiện 3](../../4-eventparticipated/4.3-event3/), [Tài liệu AWS IAM](https://docs.aws.amazon.com/iam/)                                              |
 
 ## **3. Kết quả đạt được**
 
 ### **Cơ sở lý thuyết**
 
-* Hiểu rằng ghi quyết định thành văn bản (có mã như QĐ-07) giúp tránh tranh luận lặp lại và review code nhanh hơn.
-* Tiếp thu triết lý của Tiến sĩ Werner Vogels: "Mọi thứ đều có thể hỏng, mọi lúc", định hướng lựa chọn tác vụ bất đồng bộ, tính lũy đẳng (idempotency) và ghi có điều kiện.
-* Áp dụng thông điệp FinOps từ AI Day: chọn đúng kiến trúc và khung chi phí trước khi chọn công cụ mới nhất.
+- Học được rằng một quyết định có mã (ví dụ QĐ-07) chấm dứt tranh luận lặp lại và cho code review một mốc tham chiếu rõ ràng.
+- Rút ra từ bài nói của Dr. Werner Vogels: backend phải tính trước chuyện lỗi; retry, ghi idempotent và cập nhật có điều kiện là một phần của thiết kế.
+- Hiểu ý tưởng FinOps ở AI Day: thống nhất hệ thống được phép tốn bao nhiêu mỗi tháng trước khi chọn dịch vụ.
 
 ### **Cài đặt & Thiết lập môi trường**
 
-* Git repository trống có bảo vệ nhánh và workflow GitHub Actions chạy typecheck, test (chưa có code ứng dụng).
-* Nhật ký quyết định chung (QĐ-01 → QĐ-45) và danh sách 58 điểm còn thiếu trong đặc tả đã xử lý hoặc tạm hoãn.
+- Quy tắc backend đã ghi vào sổ quyết định chung: danh sách trạng thái, các bước chuyển hợp lệ và bên được thực hiện từng bước.
+- Bảng vai trò – hành động mà phần phân quyền backend làm theo.
 
 ### **Kỹ năng thực hành & Vận hành**
 
-* Cùng nhóm rà soát đặc tả và biến câu hỏi mở thành quyết định trong một tuần.
-* Tham dự trọn ngày Watch Party AI Day và buổi keynote của Tiến sĩ Werner Vogels tại Bitexco Financial Tower.
+- Biến những phần mơ hồ của đặc tả thành quy tắc trạng thái rõ ràng, có thể code thẳng thành state machine.
+- Tham dự trọn ngày AI Day watch party và buổi fireside chat với Dr. Werner Vogels tại Bitexco Financial Tower.

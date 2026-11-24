@@ -1,43 +1,44 @@
 ---
 title: "Nhật ký công việc Tuần 6"
-date: 2026-11-07
+date: 2026-11-25
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-# **Nhật ký công việc Tuần 6 — Môi trường Dev bằng Terraform, luồng chợ đầy đủ trên AWS và Cloud & AI Meetup**
+# **Nhật ký công việc Tuần 6 — Hẹn giờ chạy nền không cần scan (timers.ts), Job quét EventBridge 15 phút & Cloud & AI Infrastructure Meetup**
 
 ## **1. Mục tiêu tuần**
 
-* Đưa toàn bộ môi trường dev vào Terraform để dựng lại được bằng một lệnh.
-* Chạy luồng chợ đầy đủ trên AWS và chứng minh bằng smoke test trọn luồng.
-* Thêm tác vụ định kỳ đóng tin hết hạn và cảnh báo CloudWatch/SNS; tham dự Sự kiện 4 (Cloud & AI Infrastructure Meetup).
+- Cho backend chạy việc đúng thời điểm (tin hết hạn, nhắc giao dịch) mà không phải quét cả bảng.
+- Nối job quét với Amazon EventBridge để chạy mỗi 15 phút trên AWS.
+- Bảo đảm mọi mốc hẹn giờ chạy trễ hay chạy hai lần đều an toàn.
+- Tham gia Sự kiện 4 (Cloud & AI Infrastructure Meetup).
 
 ## **2. Lịch trình thực hiện**
 
-| Ngày | Mô tả công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Thứ 2** | • Xác nhận luồng chợ đầy đủ chạy trên AWS trước ngày 19/10/2026 (đăng tin → ghép → báo giá → ra giá trong chat → giao dịch → đánh giá); lưu Terraform state trong bucket S3 có versioning | 19/10/2026 | 19/10/2026 | [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs), [Tài liệu Amazon S3](https://docs.aws.amazon.com/s3/) |
-| **Thứ 3** | • Dựng lại stack dev bằng Terraform: `reloop-dev-user-pool`, `reloop-dev-api`, CloudFront với Origin Access Control (OAC) cho bucket web | 20/10/2026 | 20/10/2026 | [Tài liệu Amazon CloudFront](https://docs.aws.amazon.com/cloudfront/), [Repository ReLoop](https://github.com/madlyham/ReLoop) (`infra/*.tf`) |
-| **Thứ 4** | • Cấu hình rule Amazon EventBridge chạy định kỳ mỗi 15 phút để đóng tin hết hạn (quá cửa sổ 7 ngày) | 21/10/2026 | 21/10/2026 | [Tài liệu Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/) |
-| **Thứ 5** | • Triển khai và chạy `smoke-aws.py` trên stack dev thật: đạt 25/25 bước kiểm tra | 22/10/2026 | 22/10/2026 | [Repository ReLoop](https://github.com/madlyham/ReLoop) (`smoke-aws.py`) |
-| **Thứ 6** | • Cấu hình lưu log CloudWatch 7 ngày và 1 cảnh báo metric Lambda Errors (≥ 3 lỗi trong 5 phút) gửi email cảnh báo cho Admin qua Amazon SNS | 23/10/2026 | 23/10/2026 | [Tài liệu Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/), [Tài liệu Amazon SNS](https://docs.aws.amazon.com/sns/) |
-| **Thứ 7** | • Tham dự [Sự kiện 4: Hội thảo chuyên sâu về Hạ tầng Điện toán đám mây & AI](../../4-eventparticipated/4.4-event4/) (10:30 – 12:00 tại Bitexco Financial Tower). Tìm hiểu sâu về lưu trữ đối tượng cho AI (chuẩn S3 API ở quy mô lớn), tối ưu cụm GPU phục vụ LLM và kiến trúc định tuyến thông minh (Agent Router) và đồ thị bộ nhớ. | 24/10/2026 | 24/10/2026 | [Sự kiện 4](../../4-eventparticipated/4.4-event4/), [Tài liệu Amazon S3](https://docs.aws.amazon.com/s3/) |
+| Ngày      | Mô tả công việc                                                                                                                                                                                                                                                                                                       | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                                                                                                                                                                                         |
+| :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Thứ 2** | • Thiết kế item hẹn giờ gom theo giờ: `TIMER#<YYYY-MM-DDTHH>` / `<loại>#<id>`, để job chỉ đọc vài "ngăn" giờ bằng `Query` thay vì `Scan`                                                                                                                                                                              | 19/10/2026   | 19/10/2026      | [Thực hành tốt với DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html), [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`)    |
+| **Thứ 3** | • Viết `timerOp()` và `TimerSweeper` trong `timers.ts`: đọc các ngăn từ 72 giờ trước tới hiện tại, chạy mốc đã đến hạn, xóa mốc khi thành công và giữ lại mốc lỗi để lần quét sau chạy lại                                                                                                                            | 20/10/2026   | 20/10/2026      | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/jobs/timers.ts`)                                                                                                               |
+| **Thứ 4** | • Thêm các loại mốc `LISTING_EXPIRE` (tin đóng sau 7 ngày), `LISTING_MATCH`, `TX_REMIND`, `TX_AUTO_COMPLETE` và `TX_CANCEL`, cùng chỗ gắn việc định kỳ như lập phí hằng tháng                                                                                                                                         | 21/10/2026   | 21/10/2026      | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/jobs/timers.ts`)                                                                                                               |
+| **Thứ 5** | • Nối job quét với rule EventBridge `rate(15 minutes)` gọi Lambda API, và ghi log `timer_sweep` / `timer_failed` lên CloudWatch                                                                                                                                                                                       | 22/10/2026   | 22/10/2026      | [Rule định kỳ của EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html), [Repository ReLoop](https://github.com/madlyham/ReLoop/blob/main/terraform/events.tf) (`events.tf`) |
+| **Thứ 6** | • Thử chạy trễ và chạy trùng bằng đồng hồ giả: mỗi handler đọc lại trạng thái hiện tại trước, nên mốc của tin đã đóng sẽ không làm gì                                                                                                                                                                                 | 23/10/2026   | 23/10/2026      | [Workshop 5.9](../../5-workshop/5.9-eventbridge/)                                                                                                                                                                          |
+| **Thứ 7** | • Tham gia [Sự kiện 4: Cloud & AI Infrastructure Meetup](../../4-eventparticipated/4.4-event4/) (10:30 – 12:00 tại văn phòng AWS Việt Nam, tầng 26, Bitexco Financial Tower). Diễn giả từ OMZ, Viettel AI và Viettel Networks chia sẻ về lưu trữ object cho dữ liệu AI, phục vụ suy luận trên GPU và định tuyến agent | 24/10/2026   | 24/10/2026      | [Sự kiện 4](../../4-eventparticipated/4.4-event4/), [Tài liệu Amazon S3](https://docs.aws.amazon.com/s3/)                                                                                                                  |
 
 ## **3. Kết quả đạt được**
 
 ### **Cơ sở lý thuyết**
 
-* Hiểu vì sao Terraform state lưu từ xa, có versioning lại quan trọng khi nhiều người cùng triển khai một stack.
-* Hiểu cách khóa tác vụ theo khung thời gian giúp tác vụ định kỳ tìm việc đến hạn mà không phải quét toàn bộ bảng.
+- Hiểu cách khóa gom theo giờ biến việc "tìm mọi thứ đến hạn" thành vài lệnh `Query` rẻ.
+- Hiểu vì sao job nền phải idempotent: bộ hẹn giờ có thể chạy trễ, và lần thử lại có thể làm cùng một việc hai lần.
 
 ### **Cài đặt & Thiết lập môi trường**
 
-* Stack dev do Terraform quản lý: Cognito, HTTP API, Lambda, DynamoDB, S3, CloudFront (OAC), EventBridge, CloudWatch và SNS.
-* Lưu log CloudWatch 7 ngày và 1 cảnh báo metric Lambda Errors (≥ 3 lỗi trong 5 phút) gửi email cho Admin qua SNS.
+- `timers.ts` với 5 loại mốc, quét lùi 72 giờ và chạy lại khi lỗi.
+- Rule EventBridge `rate(15 minutes)` gọi Lambda API.
 
 ### **Kỹ năng thực hành & Vận hành**
 
-* Smoke test trọn luồng đạt 25/25 trên stack dev đã triển khai.
-* Tham dự Cloud & AI Infrastructure Meetup và ghi lại ý tưởng về lưu trữ cho bài toán AI.
+- Tin đăng tự đóng sau 7 ngày mà không cần quét bảng.
+- Đã thử quét trễ và quét trùng; cả hai đều không thay đổi dữ liệu đã chốt.

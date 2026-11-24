@@ -1,42 +1,43 @@
 ---
 title: "Nhật ký công việc Tuần 8"
-date: 2026-11-07
+date: 2026-11-25
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-# **Nhật ký công việc Tuần 8 — Ghép tin chạy nền, các đợt QA, WAF và tài liệu kỹ thuật**
+# **Nhật ký công việc Tuần 8 — Ghép chi nhánh chạy nền bằng Geohash & Haversine, Giới hạn AI theo ngày & Lịch sử nhãn AI**
 
 ## **1. Mục tiêu tuần**
 
-* Tự động ghép mỗi tin mới với chi nhánh bên mua ở gần, chạy nền (bất đồng bộ).
-* Tìm và sửa lỗi qua các đợt QA có cấu trúc và lần load test đầu tiên.
-* Bảo vệ lớp biên CloudFront và API công khai bằng AWS WAF, viết tài liệu kỹ thuật cho lập trình viên.
+- Ghép mỗi tin đăng mới, ở chế độ nền, với mọi chi nhánh đã duyệt có vùng phục vụ (1–15 km) bao phủ tin đó.
+- Xếp chi nhánh gần (trong 5 km) lên trước, và tự chạy lại phần ghép nếu bị lỗi.
+- Giới hạn dùng AI 20 lượt mỗi người mỗi ngày.
+- Lưu gợi ý của AI cạnh lựa chọn cuối của người bán để sau này đo độ chính xác.
 
 ## **2. Lịch trình thực hiện**
 
-| Ngày | Mô tả công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Thứ 2** | • Ghép tin chạy nền bằng geohash + khoảng cách Haversine: mỗi tin được gửi tới mọi chi nhánh đã duyệt có vùng phục vụ (1–15 km) bao phủ; tin trong 5 km được xếp trước | 02/11/2026 | 02/11/2026 | [Tài liệu Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb/), [Repository ReLoop](https://github.com/madlyham/ReLoop) (`matching.ts`) |
-| **Thứ 3** | • Tổng hợp 5 đợt QA: 146 mục được ghi nhận và xếp ưu tiên (03/11/2026) | 03/11/2026 | 03/11/2026 | [Repository ReLoop](https://github.com/madlyham/ReLoop), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
-| **Thứ 4** | • Load test lần đầu (`loadtest.mjs`, 80 request song song): 26% lỗi `5xx` khi giới hạn Lambda là 10; xin và được nâng giới hạn lên 1.000 | 04/11/2026 | 04/11/2026 | [Tài liệu AWS Lambda](https://docs.aws.amazon.com/lambda/), [Repository ReLoop](https://github.com/madlyham/ReLoop) (`loadtest.mjs`) |
-| **Thứ 5** | • Giới hạn AI 20 lượt phân tích/người/ngày (`AI_DAILY_LIMIT`); lưu gợi ý của AI cạnh giá trị người bán chốt (`AILABEL`) | 05/11/2026 | 05/11/2026 | [Tài liệu Amazon Bedrock](https://docs.aws.amazon.com/bedrock/), [Repository ReLoop](https://github.com/madlyham/ReLoop) (`aiService.ts`) |
-| **Thứ 6** | • Cấu hình một AWS WAF web ACL duy nhất cho CloudFront (3 bộ luật AWS managed + 2 giới hạn tốc độ theo IP: 100 request/phút cho API công khai và 1.000 request/phút toàn hệ thống) ngày 06/11/2026; viết `RELOOP_TECHNICAL_REFERENCE` (hơn 30 mẫu khóa, toàn bộ route API) | 06/11/2026 | 06/11/2026 | [Tài liệu AWS WAF](https://docs.aws.amazon.com/waf/), [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs), [Repository ReLoop](https://github.com/madlyham/ReLoop) (`infra/waf.tf`) |
+| Ngày      | Mô tả công việc                                                                                                                                                                                                                | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                                                                                                                                                                                             |
+| :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Thứ 2** | • Viết `geo.ts`: geohash độ chính xác 4 (ô khoảng 39 × 19,5 km) cùng 8 ô xung quanh luôn phủ đủ bán kính tối đa 15 km; chi nhánh được đánh chỉ mục theo `GSI1` `GEO4#<geohash>`                                                | 02/11/2026   | 02/11/2026      | [Secondary index của DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html), [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/shared/geo.ts`) |
+| **Thứ 3** | • Viết bước ghép: truy vấn 9 ô, giữ chi nhánh có khoảng cách Haversine nằm trong `radiusKm` của nó, ghi một item `LISTING#<id>` / `MATCH#<branchId>` cho mỗi lần ghép, và hiển thị cho đối tác khoảng cách làm tròn lên 0,5 km | 03/11/2026   | 03/11/2026      | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/listings/listingService.ts`)                                                                                       |
+| **Thứ 4** | • Cho phần ghép chạy nền sau khi đăng tin; nếu lỗi, mốc `LISTING_MATCH` (job quét tôi viết ở Tuần 6) chạy lại sau 5 phút mà không chặn việc đăng tin; sắp xếp kết quả để chi nhánh trong 5 km lên đầu                          | 04/11/2026   | 04/11/2026      | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/jobs/timers.ts`)                                                                                                   |
+| **Thứ 5** | • Thêm giới hạn AI: bộ đếm `AIQUOTA#<ngày>` cho từng người (theo ngày giờ Việt Nam) có thử lại lạc quan, báo lỗi `AI_DAILY_LIMIT` khi đủ 20 lượt, và TTL 2 ngày để bộ đếm cũ tự xóa                                            | 05/11/2026   | 05/11/2026      | [TTL của DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`)   |
+| **Thứ 6** | • Lưu gợi ý của AI cạnh giá trị cuối của người bán trong `AILABEL#<YYYY-MM>` khi tin được tạo từ một lượt phân tích, để đo độ chính xác AI theo từng tháng                                                                     | 06/11/2026   | 06/11/2026      | [Repository ReLoop](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`)                                                                                                            |
 
 ## **3. Kết quả đạt được**
 
 ### **Cơ sở lý thuyết**
 
-* Hiểu cách tiền tố geohash thu hẹp vùng tìm kiếm để chỉ kiểm tra khoảng cách Haversine chính xác với chi nhánh ở gần.
-* Hiểu rằng giới hạn Lambda chạy song song mặc định của tài khoản mới có thể là nút thắt đầu tiên khi tải tăng.
+- Hiểu vì sao ô geohash phải lớn hơn bán kính tìm kiếm, để ô đó cùng 8 ô xung quanh luôn chứa mọi ứng viên.
+- Hiểu phần ghép chạy lại được an toàn vì nó ghi lại đúng các item cũ, nên chỉ cần một mốc hẹn giờ để thử lại.
 
 ### **Cài đặt & Thiết lập môi trường**
 
-* Một CloudFront WAF web ACL duy nhất ($10.00/tháng) với 3 bộ luật AWS managed và 2 giới hạn tốc độ theo IP (100 request/phút API công khai, 1.000 request/phút toàn hệ thống).
-* Giới hạn Lambda song song nâng từ 10 lên 1.000; giới hạn AI mỗi ngày đặt 20 lượt/người.
+- `geo.ts` (geohash, ô lân cận, Haversine) và các item `MATCH#` cho mỗi tin đăng.
+- Bộ đếm `AIQUOTA#<ngày>` giới hạn 20 lượt mỗi ngày, TTL 2 ngày; lịch sử `AILABEL#<YYYY-MM>`.
 
 ### **Kỹ năng thực hành & Vận hành**
 
-* Khắc phục các lỗi QA ưu tiên cao nhất và kiểm thử lại các luồng liên quan.
-* Viết tài liệu kỹ thuật tham chiếu để thành viên mới tìm được mọi mẫu khóa và route ở một nơi.
+- Tin mới đến được mọi chi nhánh có vùng 1–15 km bao phủ, gần nhất lên trước, mà người bán không phải chờ.
+- Người dùng đủ 20 lượt trong ngày nhận thông báo `AI_DAILY_LIMIT` rõ ràng.

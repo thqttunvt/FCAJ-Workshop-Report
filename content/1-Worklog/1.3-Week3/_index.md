@@ -1,43 +1,44 @@
 ---
 title: "Week 3 Worklog"
-date: 2026-11-07
+date: 2026-11-25
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-# **Week 3 Worklog — ReLoop Specification, 45 Business Decisions, AI Day Watch Party & Dr. Werner Vogels Fireside**
+# **Week 3 Worklog — ReLoop Specification Review, Backend Business Rules, AI Day Watch Party & Fireside Chat with Dr. Werner Vogels**
 
 ## **1. Weekly Objectives**
 
-* Turn the ReLoop specification v1.0 into clear, written business decisions.
-* Agree on the team's ways of working (roles, deploy rules, AWS access) and prepare an empty repository + CI for development in Week 4.
-* Attend Event 2 (AWS Cloud and AI Day Hanoi Watch Party) and Event 3 (Fireside Chat with Dr. Werner Vogels).
+- Read the ReLoop specification v1.0 from a backend point of view and write down every question that affects data or APIs.
+- Write the backend rules (states, who may change them, how money is stored) into the shared decision log QĐ-01 → QĐ-45.
+- Take the **Backend Engineer** role in the team.
+- Attend Event 2 (AWS Cloud and AI Day Hanoi – Watch Party) and Event 3 (Fireside Chat with Dr. Werner Vogels).
 
 ## **2. Weekly Execution Schedule**
 
-| Day | Task Description | Start Date | Completion Date | Reference Material |
-| :--- | :--- | :--- | :--- | :--- |
-| **Monday** | • Read the 1,189-paragraph specification v1.0 end to end; list 58 spec gaps and open questions | 28/09/2026 | 28/09/2026 | [ReLoop Repository](https://github.com/madlyham/ReLoop), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
-| **Tuesday** | • Attend [Event 2: AWS Cloud and AI Day Hanoi – Watch Party](../../4-eventparticipated/4.2-event2/) (08:00 AM – 05:00 PM at AWS Vietnam Office, Bitexco Level 26). Deep-dive into enterprise AI agents, platform engineering, and FinOps cloud cost optimization. | 29/09/2026 | 29/09/2026 | [Event 2](../../4-eventparticipated/4.2-event2/), [AWS Billing & Cost Explorer](https://docs.aws.amazon.com/cost-management/) |
-| **Wednesday** | • Define the user roles (Guest, Partner tier 1, Partner tier 2, Admin, Finance Admin) and resolve the spec gaps with the team | 30/09/2026 | 30/09/2026 | [Amazon Cognito Docs](https://docs.aws.amazon.com/cognito/), [ReLoop Repository](https://github.com/madlyham/ReLoop) |
-| **Thursday** | • Write the 45 business decisions (QĐ-01 → QĐ-45); create the empty Git repository and a GitHub Actions CI template (typecheck + tests on every pull request), ready for development | 01/10/2026 | 01/10/2026 | [GitHub Actions Docs](https://docs.github.com/actions), [ReLoop Repository](https://github.com/madlyham/ReLoop) |
-| **Friday** | • Attend [Event 3: Fireside Chat with Dr. Werner – Navigating the Future of Cloud & AI in Vietnam](../../4-eventparticipated/4.3-event3/) (10:30 AM – 12:00 PM at Bitexco Financial Tower; keynote by Dr. Werner Vogels, CTO of Amazon). Agree on the 5-person work split (my role: Team Lead — also contributing to backend AI, Terraform infrastructure, and technical docs) and the deploy rules: one deploy workflow and one IAM user per member. | 02/10/2026 | 02/10/2026 | [Event 3](../../4-eventparticipated/4.3-event3/), [AWS IAM Docs](https://docs.aws.amazon.com/iam/) |
+| Day           | Task Description                                                                                                                                                                                                                                                                                                                                                                          | Start Date | Completion Date | Reference Material                                                                                                                                  |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Monday**    | • Read the 1,189-paragraph specification v1.0 and list my backend questions: which states a listing can be in, who may see a quote, how prices are stored, what happens when a deal is cancelled                                                                                                                                                                                          | 28/09/2026 | 28/09/2026      | [Proposal](../../2-proposal/), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)          |
+| **Tuesday**   | • Attend [Event 2: AWS Cloud and AI Day Hanoi – Watch Party](../../4-eventparticipated/4.2-event2/) (08:00 AM – 05:00 PM at the AWS Vietnam Office, Level 26, Bitexco Financial Tower). Sessions on agentic AI, platform engineering and FinOps showed me that the cost envelope should be fixed before choosing tools                                                                    | 29/09/2026 | 29/09/2026      | [Event 2](../../4-eventparticipated/4.2-event2/), [AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html) |
+| **Wednesday** | • Map each user role (Guest, Partner tier 1, Partner tier 2, Admin, Finance Admin) to the API actions it may call; this map later became the 4 Cognito groups `Admins`, `FinanceAdmins`, `Partners`, `Owners`                                                                                                                                                                             | 30/09/2026 | 30/09/2026      | [Amazon Cognito User Pool Groups](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html)                    |
+| **Thursday**  | • Write my backend decisions into the decision log: listing states (`PENDING_REVIEW` → `ACTIVE` → `MATCHED` → `COMPLETED` / `EXPIRED` / `CANCELLED`), quote and transaction states, which actor (`OWNER`, `PARTNER`, `ADMIN`, `SYSTEM`) may make each change, and all prices stored as integer VND                                                                                        | 01/10/2026 | 01/10/2026      | [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/domain/stateMachines.ts`)                                       |
+| **Friday**    | • Attend [Event 3: Fireside Chat with Dr. Werner – Navigating the Future of Cloud & AI in Vietnam](../../4-eventparticipated/4.3-event3/) (10:30 AM – 12:00 PM at the AWS Vietnam Office, Level 26, Bitexco Financial Tower). Dr. Werner Vogels' line "Everything fails, all the time" stayed with me. Take the **Backend Engineer** role: the DynamoDB data layer and the business rules | 02/10/2026 | 02/10/2026      | [Event 3](../../4-eventparticipated/4.3-event3/), [AWS IAM Docs](https://docs.aws.amazon.com/iam/)                                                  |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-* Learned that writing decisions down (with an ID like QĐ-07) ends repeated debates and makes later code reviews faster.
-* Absorbed Dr. Werner Vogels' axiom "Everything fails, all the time", which shaped our choices for async jobs, idempotency, and conditional writes.
-* Adopted the FinOps message from AI Day: pick the right architecture and cost envelope before picking the newest tools.
+- Learned that a decision with an ID (for example QĐ-07) ends repeated debates and gives code reviews a clear reference.
+- Took from Dr. Werner Vogels' talk that a backend must expect failure: retries, idempotent writes and conditional updates are part of the design.
+- Understood the FinOps idea from AI Day: agree on what the system may cost per month before choosing services.
 
 ### **Environment Setup & Configuration**
 
-* Empty Git repository with branch protection and a GitHub Actions workflow for typecheck and tests (no app code yet).
-* Shared decision log (QĐ-01 → QĐ-45) and a list of 58 resolved or parked spec gaps.
+- Backend rules written in the shared decision log: state lists, allowed transitions and the actor for each transition.
+- Role-to-action map that the backend authorization follows.
 
 ### **Practical Skills & Operations**
 
-* Ran a spec-gap review with the team and turned open questions into decisions in one week.
-* Attended the full-day AI Day watch party and the Dr. Werner Vogels fireside keynote at Bitexco Financial Tower.
+- Turned vague parts of the specification into precise state rules that could be coded directly as state machines.
+- Attended the full-day AI Day watch party and the fireside chat with Dr. Werner Vogels at Bitexco Financial Tower.

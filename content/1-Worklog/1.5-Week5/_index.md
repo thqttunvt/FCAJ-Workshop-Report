@@ -1,42 +1,42 @@
 ---
 title: "Week 5 Worklog"
-date: 2026-11-07
+date: 2026-11-25
 weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-# **Week 5 Worklog — Secure S3 Uploads, Rekognition Moderation & AI Listing with Bedrock Nova Pro**
+# **Week 5 Worklog — Background AI Listing Job: aiService.ts, Async Lambda Self-Invoke & AI Output Validation**
 
 ## **1. Weekly Objectives**
 
-* Let sellers upload photos straight to S3 safely, with size, type, and ownership checks.
-* Block unsafe photos automatically with Amazon Rekognition.
-* Choose an AI model covered by AWS credits and build the first AI listing assistant.
+- Run AI listing analysis in the background so the API answers at once instead of waiting for the model.
+- Make the job safe to run twice: a duplicate or late run must never overwrite a finished result.
+- Check every AI answer on the server before it can be saved into a listing.
 
 ## **2. Weekly Execution Schedule**
 
-| Day | Task Description | Start Date | Completion Date | Reference Material |
-| :--- | :--- | :--- | :--- | :--- |
-| **Monday** | • `S3ImageStore`: presigned POST (300 s, max 5 MB, JPEG/PNG/WebP, up to 6 photos per listing); `assertOwnImageKeys` so users can only attach their own photos | 12/10/2026 | 12/10/2026 | [Amazon S3 Docs](https://docs.aws.amazon.com/s3/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`imageStore.ts`) |
-| **Tuesday** | • Rekognition `DetectModerationLabels` (`MinConfidence 70`); unsafe photos return `422 IMAGE_REJECTED`; lifecycle rules delete unattached photos after 1 day and all photos after 90 days | 13/10/2026 | 13/10/2026 | [Amazon Rekognition Docs](https://docs.aws.amazon.com/rekognition/) |
-| **Wednesday** | • Check Billing → Credits → applicable products; drop SageMaker and Rekognition Custom Labels (hourly cost, need training data); pick Amazon Nova Pro (`apac.amazon.nova-pro-v1:0`), billed per token and covered by credits | 14/10/2026 | 14/10/2026 | [AWS Billing & Cost Explorer](https://docs.aws.amazon.com/cost-management/), [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/) |
-| **Thursday** | • Implement `BedrockAnalyzer` with the Converse API and forced `toolChoice` so the model must return JSON matching our `AiResult` schema (`temperature 0`, `maxTokens 2048`) | 15/10/2026 | 15/10/2026 | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`analyzer.ts`) |
-| **Friday** | • Run AI analysis asynchronously in the background (Lambda self-invoke, `InvocationType=Event`) and test on real laptop and component photos | 16/10/2026 | 16/10/2026 | [AWS Lambda Docs](https://docs.aws.amazon.com/lambda/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`aiService.ts`) |
+| Day           | Task Description                                                                                                                                                                                                                                                | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                      |
+| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Monday**    | • Study the pieces my job depends on: the photo store (`ImageStore.read`, moderation check) and the `Analyzer` interface that calls Amazon Bedrock                                                                                                              | 12/10/2026 | 12/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/), [Workshop 5.8](../../5-workshop/5.8-ai-processing/)                                                                                                                                        |
+| **Tuesday**   | • Design the analysis item `USER#<id>` / `AI#<analysisId>` with status `PENDING` → `COMPLETED` / `FAILED`: the create call returns `202` at once and the client polls the result                                                                                | 13/10/2026 | 13/10/2026      | [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`)                                                                                                                                                     |
+| **Wednesday** | • Implement `create()` in `aiService.ts`: accept only the user's own photo keys, at most 3 photos per analysis, require moderated photos, write the `PENDING` item, then start the worker with a Lambda self-invoke (`InvocationType=Event`)                    | 14/10/2026 | 14/10/2026      | [Lambda Asynchronous Invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`)                                     |
+| **Thursday**  | • Implement the worker `run()`: it only works on a `PENDING` item and saves with a versioned conditional write, so a duplicate run cannot overwrite a finished result; on any error it saves `FAILED` with a message asking the seller to fill the form by hand | 15/10/2026 | 15/10/2026      | [DynamoDB Condition Expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`) |
+| **Friday**    | • Add server-side checks of every AI field (title, category, brand, model, condition) before it is saved; test the full job with in-memory fakes and with real laptop and phone photos                                                                          | 16/10/2026 | 16/10/2026      | [Bedrock Tool Use](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/shared/validate.ts`)                                                        |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-* Learned why third-party models sold through AWS Marketplace may not use promotional credits, while Amazon's own Nova models do and cost nothing when idle.
-* Understood how presigned POST policies enforce file size and type constraints on the S3 side, not just in the browser.
+- Learned how an asynchronous Lambda invoke lets a slow task run after the API has already answered.
+- Understood optimistic locking with a version number: a write succeeds only if nobody changed the item since it was read.
 
 ### **Environment Setup & Configuration**
 
-* Photo flow: presign → direct upload → moderate → tag; lifecycle 1 day (unattached) / 90 days (all).
-* `AI_MODEL_ID=apac.amazon.nova-pro-v1:0` with Converse tool use locked to the `AiResult` schema.
+- `aiService.ts` with `create()`, `get()` and the worker `run()`; analysis items `USER#<id>` / `AI#<analysisId>`.
+- Worker started by Lambda self-invoke on AWS and run right after the response in local tests.
 
 ### **Practical Skills & Operations**
 
-* Tested Nova Pro on a Dell Latitude 5490 sticker photo; it returned valid JSON matching our schema on the first try.
-* Verified that a user cannot attach another user's photo key to a listing.
+- The API returns `202` at once and the client gets the result by polling.
+- An AI answer that does not match the listing schema is never saved.

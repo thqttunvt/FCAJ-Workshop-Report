@@ -1,43 +1,42 @@
 ---
 title: "Week 10 Worklog"
-date: 2026-11-22
+date: 2026-11-25
 weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-# **Week 10 Worklog — Load Test, Throttling Fix, Single Deploy Workflow & Live Workshop Verification**
+# **Week 10 Worklog — Load-Test Re-run: 5xx from 26% to 0, Throttling Check & Results Write-up**
 
 ## **1. Weekly Objectives**
 
-* Prove the system handles traffic bursts gracefully after the Lambda concurrency quota raise.
-* Enforce a single CI/CD deploy workflow with one IAM user per member and zero root access keys.
-* Rebuild the streamlined hands-on Workshop (`5.1`–`5.12`) and complete full live end-to-end verification across Arrows 1 → 10, EventBridge, and CloudWatch/SNS.
+- Re-run the Week 8 load test now that Lambda concurrency is 1,000, under the same conditions.
+- Confirm that overload ends in a clean `429`, not a `5xx`.
+- Write the before and after results down for the final report.
 
 ## **2. Weekly Execution Schedule**
 
-| Day | Task Description | Start Date | Completion Date | Reference Material |
-| :--- | :--- | :--- | :--- | :--- |
-| **Monday** | • Re-run `loadtest.mjs` (80 parallel requests) against the earlier baseline of 26% `5xx`; with Lambda concurrency at 1,000, `5xx` errors drop to zero | 16/11/2026 | 16/11/2026 | [AWS Lambda Docs](https://docs.aws.amazon.com/lambda/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`loadtest.mjs`) |
-| **Tuesday** | • Throttling fix: configure API Gateway throttling (20 req/s, burst 50) and verify CloudFront WAF rate limits return controlled rate-limiting responses (`429` + `Retry-After`) instead of failing | 17/11/2026 | 17/11/2026 | [Amazon API Gateway Docs](https://docs.aws.amazon.com/apigateway/), [AWS WAF Docs](https://docs.aws.amazon.com/waf/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`infra/waf.tf`) |
-| **Wednesday** | • Enforce a single CI/CD deploy workflow in GitHub Actions from committed revisions (no manual laptop deploys); finalize one IAM user per team member and confirm zero root access keys exist on the account | 18/11/2026 | 18/11/2026 | [GitHub Actions Docs](https://docs.github.com/actions), [AWS IAM Docs](https://docs.aws.amazon.com/iam/) |
-| **Thursday** | • Rebuild and streamline the ReLoop Workshop (`5.1`–`5.12`) to match the exact 12-service (+ IAM) Terraform stack with repeatable setup and cleanup instructions | 19/11/2026 | 19/11/2026 | [Workshop](../../5-workshop/), [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) |
-| **Friday** | • Run full live end-to-end verification across Arrows 1 → 10 (CloudFront + WAF edge, Cognito auth, S3 presigned upload, Rekognition moderation, Bedrock Kimi K3 + Guardrail, and DynamoDB single-table marketplace flows) | 20/11/2026 | 20/11/2026 | [Workshop](../../5-workshop/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`smoke-aws.py`) |
-| **Saturday** | • Verify the EventBridge 15-minute listing-expiry sweep and CloudWatch 7-day logs + Lambda Errors alarm (≥ 3 errors in 5 min) → SNS Admin email alerts; record Cost Explorer & credit snapshot ($189.80 USD remaining until 28/02/2027) | 21/11/2026 | 21/11/2026 | [Amazon EventBridge Docs](https://docs.aws.amazon.com/eventbridge/), [Amazon CloudWatch Docs](https://docs.aws.amazon.com/cloudwatch/), [Amazon SNS Docs](https://docs.aws.amazon.com/sns/), [AWS Billing & Cost Explorer](https://docs.aws.amazon.com/cost-management/) |
+| Day           | Task Description                                                                                                                            | Start Date | Completion Date | Reference Material                                                                                                                                                                                          |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------ | :--------- | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Monday**    | • Prepare the re-run with the same 80 parallel requests and the same routes as the Week 8 baseline (26% `5xx` at a concurrency limit of 10) | 16/11/2026 | 16/11/2026      | [Lambda Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html)                                                                                                                  |
+| **Tuesday**   | • Run the load test with Lambda concurrency at 1,000: the `5xx` rate drops from 26% to 0                                                    | 17/11/2026 | 17/11/2026      | [Lambda Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html)                                                                                                                  |
+| **Wednesday** | • Read the Lambda metrics in CloudWatch for the test window (`Duration`, `Errors`, `Throttles`); average duration is about 144 ms           | 18/11/2026 | 18/11/2026      | [Lambda Metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html), [Workshop 5.10](../../5-workshop/5.10-monitoring/)                                                                  |
+| **Thursday**  | • Send a burst above the API limit (20 req/s, burst 50) and confirm the extra requests get `429` instead of `5xx`                           | 19/11/2026 | 19/11/2026      | [HTTP API Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-throttling.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/blob/main/terraform/api.tf) (`api.tf`) |
+| **Friday**    | • Write up the before and after numbers (26% → 0 `5xx`, about 144 ms average duration, `429` above the limit) for the final report          | 20/11/2026 | 20/11/2026      | [Proposal](../../2-proposal/)                                                                                                                                                                               |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-* Learned the difference between failing under load (`5xx`) and pushing back gracefully with controlled rate limiting (`429` + `Retry-After`).
-* Understood why a single CI/CD deploy workflow from committed revisions prevents concurrent overwrites across developer machines.
+- Learned the difference between failing under load (`5xx`) and pushing back on purpose (`429`), and why clients can safely retry the second one.
+- Understood that a fair before-and-after test must keep the same load, routes and data.
 
 ### **Environment Setup & Configuration**
 
-* API Gateway throttle (20 req/s, burst 50) and CloudFront WAF rate limits verified to return `429` + `Retry-After`.
-* CI-only GitHub Actions deploy workflow active, per-member IAM users enforced, and zero root access keys confirmed.
+- Repeatable load test with 80 parallel requests, run against the Week 8 baseline.
+- CloudWatch view of `Duration`, `Errors` and `Throttles` for the test window.
 
 ### **Practical Skills & Operations**
 
-* Compared load-test results before and after the fix and documented them for the final report.
-* Completed live end-to-end Workshop verification (`5.1`–`5.12`) across Arrows 1 → 10, EventBridge, and CloudWatch/SNS, and verified remaining credits ($189.80 USD on 21/11/2026 until 28/02/2027).
+- Measured `5xx` falling from 26% to 0 after the concurrency raise.
+- Confirmed that requests above the API limit get `429`, and recorded every number for the final report.

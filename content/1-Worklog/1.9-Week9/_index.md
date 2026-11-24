@@ -1,44 +1,44 @@
 ---
 title: "Week 9 Worklog"
-date: 2026-11-22
+date: 2026-11-25
 weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-# **Week 9 Worklog — Security Review, Hardening Fixes, Proposal Part 2 & Cloud Mastery Event**
+# **Week 9 Worklog — Proposal Part 2 Backend Sections, Cost Explorer Review & Cloud Mastery Event**
 
 ## **1. Weekly Objectives**
 
-* Conduct an end-to-end security review of IAM roles, Cognito JWT authorization, CloudFront `x-origin-verify` origin locking, and CloudFront WAF rules.
-* Implement and deploy hardening fixes, then re-verify the live stack with the smoke test.
-* Review live AWS Cost Explorer spend against remaining AWS credits and submit Proposal Part 2.
-* Attend Event 6 (Cloud Mastery) at the AWS Vietnam Office.
+- Write the backend parts of Proposal Part 2 (data model and background processing) from what is really in the code.
+- Check the real AWS spend in Cost Explorer and put the figures into the proposal.
+- Finish my sections before the submission on 13/11/2026.
+- Attend Event 6 (Cloud Mastery) at the AWS Vietnam Office.
 
 ## **2. Weekly Execution Schedule**
 
-| Day | Task Description | Start Date | Completion Date | Reference Material |
-| :--- | :--- | :--- | :--- | :--- |
-| **Monday** | • Security review across least-privilege IAM policies, Cognito JWT claims and 4-group RBAC (`Admins`, `FinanceAdmins`, `Partners`, `Owners`), and DynamoDB ownership conditions | 09/11/2026 | 09/11/2026 | [AWS IAM Docs](https://docs.aws.amazon.com/iam/), [Amazon Cognito Docs](https://docs.aws.amazon.com/cognito/), [Amazon DynamoDB Docs](https://docs.aws.amazon.com/dynamodb/) |
-| **Tuesday** | • Audit CloudFront-to-API Gateway `x-origin-verify` shared-header enforcement (blocking direct origin bypasses) and verify the single CloudFront WAF web ACL (3 AWS managed rule groups + 2 per-IP rate limits) | 10/11/2026 | 10/11/2026 | [Amazon CloudFront Docs](https://docs.aws.amazon.com/cloudfront/), [AWS WAF Docs](https://docs.aws.amazon.com/waf/), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`infra/waf.tf`) |
-| **Wednesday** | • Implement and deploy hardening fixes (strict ownership/role guards, sanitized error payloads, tighter input validation); re-run `smoke-aws.py` to confirm zero regressions | 11/11/2026 | 11/11/2026 | [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html), [ReLoop Repository](https://github.com/madlyham/ReLoop) (`smoke-aws.py`) |
-| **Thursday** | • Review per-service spend in AWS Cost Explorer against our AWS credit balance and confirm the 12-service (+ IAM) stack tracks at ~$11.70/month ($10.00 CloudFront WAF + ~$1.70 usage) | 12/11/2026 | 12/11/2026 | [AWS Billing & Cost Explorer](https://docs.aws.amazon.com/cost-management/) |
-| **Friday** | • Finalize and submit **Proposal Part 2**: updated architecture (12 managed AWS services + IAM), real Cost Explorer breakdown, and security hardening verification results | 13/11/2026 | 13/11/2026 | [Proposal](../../2-proposal/) |
-| **Saturday** | • Attend [Event 6: Cloud Mastery – Cloud Sharing Session for Students](../../4-eventparticipated/4.6-event6/) (morning, AWS Vietnam Office). Extended open Q&A with students on cloud careers and skills, followed by a live Quiz.com game | 14/11/2026 | 14/11/2026 | [Event 6](../../4-eventparticipated/4.6-event6/) |
+| Day           | Task Description                                                                                                                                                                                                                                                                       | Start Date | Completion Date | Reference Material                                                                                                                             |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Monday**    | • Collect the facts for my Proposal Part 2 sections from the code: key design and access patterns, the background jobs (sweep, matching, AI job) and their limits                                                                                                                      | 09/11/2026 | 09/11/2026      | [Proposal](../../2-proposal/), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`)             |
+| **Tuesday**   | • Write the storage part: one DynamoDB table with zero scans, a market feed split by month, and all money stored as integer VND                                                                                                                                                        | 10/11/2026 | 10/11/2026      | [Proposal](../../2-proposal/), [DynamoDB Best Practices](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html) |
+| **Wednesday** | • Write the background-processing part: the EventBridge 15-minute sweep over hour buckets, matching to branches within 1–15 km (5 km first), and the AI job (`202` + polling, 3 photos, 20 analyses per user per day)                                                                  | 11/11/2026 | 11/11/2026      | [Proposal](../../2-proposal/), [Workshop 5.9](../../5-workshop/5.9-eventbridge/)                                                               |
+| **Thursday**  | • Review per-service spend in Cost Explorer: the stack runs at about $11.70/month, of which $10.00 is the CloudFront WAF web ACL and about $1.70 is usage; add the figures to the proposal                                                                                             | 12/11/2026 | 12/11/2026      | [AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html)                                              |
+| **Friday**    | • Proofread my sections against the code one last time and hand them in for **Proposal Part 2** (submitted 13/11/2026)                                                                                                                                                                 | 13/11/2026 | 13/11/2026      | [Proposal](../../2-proposal/)                                                                                                                  |
+| **Saturday**  | • Attend [Event 6: Cloud Mastery – Cloud Sharing Session for Students](../../4-eventparticipated/4.6-event6/) (morning, AWS Vietnam Office, Level 26, Bitexco Financial Tower). A long open Q&A on cloud careers and skills, closed by a live Quiz.com game with more than 100 players | 14/11/2026 | 14/11/2026      | [Event 6](../../4-eventparticipated/4.6-event6/)                                                                                               |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-* Learned how defense-in-depth layers edge filtering (CloudFront + WAF), origin locking (`x-origin-verify`), JWT group authorization, and DynamoDB conditional expressions.
-* Understood how to cross-check live Cost Explorer figures against design estimates before finalizing a project proposal.
+- Learned to write technical documentation from the code, not from memory, so every number in it can be checked.
+- Understood from the real bill that a fixed fee (the WAF web ACL) can cost far more than all the pay-per-request services together.
 
 ### **Environment Setup & Configuration**
 
-* Least-privilege IAM policies, Cognito 4-group JWT checks, `x-origin-verify` origin locking, and CloudFront WAF rules verified on the live stack.
-* Proposal Part 2 submitted on 13/11/2026 with live Cost Explorer figures.
+- Backend sections of Proposal Part 2 (storage and background processing) written and handed in on 13/11/2026.
+- Real Cost Explorer figures (about $11.70/month) included in the proposal.
 
 ### **Practical Skills & Operations**
 
-* Deployed all security hardening fixes and passed end-to-end smoke verification without regressions.
-* Confirmed the monthly run-rate (~$11.70/month) stays comfortably within remaining AWS credits.
+- Explained the backend design in plain words for readers outside the team.
+- Read Cost Explorer by service and linked each cost to the part of the system that causes it.
