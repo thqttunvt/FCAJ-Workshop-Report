@@ -6,37 +6,35 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-# **Week 5 Worklog — Background AI Listing Job: aiService.ts, Async Lambda Self-Invoke & AI Output Validation**
+# **Week 5 Worklog — Finding an Image-Analysis AI & Studying ReLoop's Backend Processing Flows**
 
 ## **1. Weekly Objectives**
 
-- Run AI listing analysis in the background so the API answers at once instead of waiting for the model.
-- Make the job safe to run twice: a duplicate or late run must never overwrite a finished result.
-- Check every AI answer on the server before it can be saved into a listing.
+- Find an AI model that can look at a device photo and describe it well in text, to use in ReLoop.
+- Study ReLoop's main processing flows (posting a listing, quotes, transactions) before continuing with the backend.
 
 ## **2. Weekly Execution Schedule**
 
-| Day           | Task Description                                                                                                                                                                                                                                                | Start Date | Completion Date | Reference Material                                                                                                                                                                                                                                      |
-| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Monday**    | • Study the pieces my job depends on: the photo store (`ImageStore.read`, moderation check) and the `Analyzer` interface that calls Amazon Bedrock                                                                                                              | 12/10/2026 | 12/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/), [Workshop 5.8](../../5-workshop/5.8-ai-processing/)                                                                                                                                        |
-| **Tuesday**   | • Design the analysis item `USER#<id>` / `AI#<analysisId>` with status `PENDING` → `COMPLETED` / `FAILED`: the create call returns `202` at once and the client polls the result                                                                                | 13/10/2026 | 13/10/2026      | [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`)                                                                                                                                                     |
-| **Wednesday** | • Implement `create()` in `aiService.ts`: accept only the user's own photo keys, at most 3 photos per analysis, require moderated photos, write the `PENDING` item, then start the worker with a Lambda self-invoke (`InvocationType=Event`)                    | 14/10/2026 | 14/10/2026      | [Lambda Asynchronous Invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`)                                     |
-| **Thursday**  | • Implement the worker `run()`: it only works on a `PENDING` item and saves with a versioned conditional write, so a duplicate run cannot overwrite a finished result; on any error it saves `FAILED` with a message asking the seller to fill the form by hand | 15/10/2026 | 15/10/2026      | [DynamoDB Condition Expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`) |
-| **Friday**    | • Add server-side checks of every AI field (title, category, brand, model, condition) before it is saved; test the full job with in-memory fakes and with real laptop and phone photos                                                                          | 16/10/2026 | 16/10/2026      | [Bedrock Tool Use](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/shared/validate.ts`)                                                        |
+| Day           | Task Description                                                                                                                                              | Start Date | Completion Date | Reference Material                                                                                    |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------- | :-------------- | :---------------------------------------------------------------------------------------------------- |
+| **Monday**    | • Find out which AI models on Amazon Bedrock can read an image and answer in text                                                                             | 12/10/2026 | 12/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/)                                           |
+| **Tuesday**   | • Try those models myself with real device photos (laptops, phones, broken devices) and see which one describes the photo well in text                        | 13/10/2026 | 13/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/)                                           |
+| **Wednesday** | • Study the listing flow: the seller uploads photos to S3, the photos are sent for analysis, and the listing is saved in DynamoDB                            | 14/10/2026 | 14/10/2026      | [Workshop 5.7](../../5-workshop/5.7-s3-photos/), [Workshop 5.8](../../5-workshop/5.8-ai-processing/) |
+| **Thursday**  | • Study the quote and transaction flows: how a request goes through API Gateway and Lambda to DynamoDB, and how states change under the Week 3 rules         | 15/10/2026 | 15/10/2026      | [Workshop 5.5](../../5-workshop/5.5-api-backend/)                                                    |
+| **Friday**    | • Write notes on the main processing flows (listing, quote, transaction) to use when building the backend in the following weeks                             | 16/10/2026 | 16/10/2026      | [Workshop 5.5](../../5-workshop/5.5-api-backend/)                                                    |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-- Learned how an asynchronous Lambda invoke lets a slow task run after the API has already answered.
-- Understood optimistic locking with a version number: a write succeeds only if nobody changed the item since it was read.
+- Understood how a request moves through API Gateway and Lambda to DynamoDB or S3 in each ReLoop flow.
+- Learned that AI has to be tried on real photos of the right kind of product, not only on sample pictures.
 
 ### **Environment Setup & Configuration**
 
-- `aiService.ts` with `create()`, `get()` and the worker `run()`; analysis items `USER#<id>` / `AI#<analysisId>`.
-- Worker started by Lambda self-invoke on AWS and run right after the response in local tests.
+- Notes on ReLoop's main processing flows: listing, quote and transaction.
 
 ### **Practical Skills & Operations**
 
-- The API returns `202` at once and the client gets the result by polling.
-- An AI answer that does not match the listing schema is never saved.
+- Know which models on Bedrock can read an image and answer in text.
+- Understand the processing flows well enough to build the backend in the following weeks.

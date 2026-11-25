@@ -6,38 +6,36 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-# **Week 7 Worklog — Smart Plushies Community Event, AI Job Updates for Kimi K3 & Stale-Job Guard**
+# **Week 7 Worklog — Smart Plushies Community Event, Choosing Kimi K3 for ReLoop & Studying the Post-Listing Flow**
 
 ## **1. Weekly Objectives**
 
 - Attend Event 5 (Smart Plushies for Children with Operation Smile Vietnam).
-- Keep my AI job working when the model changes to Kimi K3, and record which model produced each result.
-- Update the AI output checks for the new output fields.
-- Stop an analysis from staying `PENDING` forever when the worker dies.
+- Try Kimi K3 further with more real device photos.
+- Choose Kimi K3 as the AI model for ReLoop and tell the team.
+- Keep studying the processing flow after a listing is posted.
 
 ## **2. Weekly Execution Schedule**
 
-| Day           | Task Description                                                                                                                                                                                                                                                                                                              | Start Date | Completion Date | Reference Material                                                                                                                                                                                       |
-| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Monday**    | • Attend [Event 5: Smart Plushies for Children – In Collaboration with Operation Smile Vietnam](../../4-eventparticipated/4.5-event5/) (01:30 PM – 03:30 PM in the EC2 Room, Level 36, AWS Vietnam Office, Bitexco Financial Tower). We assembled and programmed interactive plushies for children treated by Operation Smile | 26/10/2026 | 26/10/2026      | [Event 5](../../4-eventparticipated/4.5-event5/)                                                                                                                                                         |
-| **Tuesday**   | • Save `modelId` on every analysis item, so results from the old and the new model can be compared later                                                                                                                                                                                                                      | 27/10/2026 | 27/10/2026      | [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`)                                                                                            |
-| **Wednesday** | • Re-test my AI job end to end after AI moved to Kimi K3 on Bedrock (`global.moonshotai.kimi-k3`) on 28/10/2026, using real device photos                                                                                                                                                                                     | 28/10/2026 | 28/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/), [ReLoop Repository](https://github.com/madlyham/ReLoop/blob/main/terraform/variables.tf) (`variables.tf`)                                   |
-| **Thursday**  | • Update the server-side checks for the new AI output fields `observedTextAndLabels` and `identifiedComponents`, and re-test Vietnamese text with diacritics                                                                                                                                                                  | 29/10/2026 | 29/10/2026      | [Bedrock Tool Use](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/shared/validate.ts`)         |
-| **Friday**    | • Add a stale-job guard in `get()`: the worker Lambda times out at 180 s, so an analysis still `PENDING` after 4 minutes is closed as `FAILED` and the seller can fill the form by hand                                                                                                                                       | 30/10/2026 | 30/10/2026      | [Lambda Timeout](https://docs.aws.amazon.com/lambda/latest/dg/configuration-timeout.html), [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/modules/ai/aiService.ts`) |
+| Day           | Task Description                                                                                                                                                                                                                                                                                                                                     | Start Date | Completion Date | Reference Material                                                                                                                                                        |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Monday**    | • Attend [Event 5: Smart Plushies for Children – In Collaboration with Operation Smile Vietnam](../../4-eventparticipated/4.5-event5/) (01:30 PM – 03:30 PM in the EC2 Room, Level 36, AWS Vietnam Office, Bitexco Financial Tower). We assembled and programmed interactive plushies for children treated by Operation Smile                       | 26/10/2026 | 26/10/2026      | [Event 5](../../4-eventparticipated/4.5-event5/)                                                                                                                          |
+| **Tuesday**   | • Try Kimi K3 with more device photos: several angles, broken devices, Vietnamese labels                                                                                                                                                                                                                                                             | 27/10/2026 | 27/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/)                                                                                                               |
+| **Wednesday** | • Choose Kimi K3 and tell the team; the team switches ReLoop's AI to Kimi K3 on Bedrock (`global.moonshotai.kimi-k3`) on 28/10/2026                                                                                                                                                                                                                  | 28/10/2026 | 28/10/2026      | [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/), [ReLoop Repository](https://github.com/madlyham/ReLoop/blob/main/terraform/variables.tf) (`variables.tf`) |
+| **Thursday**  | • Try the live ReLoop on AWS with real photos after the switch: the AI describes about 90% of each photo correctly, so the seller only adjusts a little before posting                                                                                                                                                                              | 29/10/2026 | 29/10/2026      | [Workshop 5.8](../../5-workshop/5.8-ai-processing/)                                                                                                                       |
+| **Friday**    | • Study the processing flow after a listing is posted: how it gets matched to nearby branches and how partners see it, to prepare for the branch matching work in Week 8                                                                                                                                                                             | 30/10/2026 | 30/10/2026      | [Workshop 5.5](../../5-workshop/5.5-api-backend/)                                                                                                                         |
 
 ## **3. Key Achievements & Outcomes**
 
 ### **Theoretical Foundation**
 
-- Learned that an async worker with no dead-letter queue can disappear silently, so the read path must detect a job that never finished.
-- Learned to keep a strict schema check on AI output, so a model change cannot break saved data.
+- Learned that the model a whole team depends on should be tried on many kinds of real photos first.
 
 ### **Environment Setup & Configuration**
 
-- Analysis items store `modelId`; AI output checks cover `observedTextAndLabels` and `identifiedComponents`.
-- Stale-job limit of 4 minutes, above the 180 s worker timeout.
+- ReLoop uses Kimi K3 on Amazon Bedrock from 28/10/2026.
 
 ### **Practical Skills & Operations**
 
-- My AI job kept working after the switch to Kimi K3.
+- The AI on ReLoop describes about 90% of a real photo correctly, and sellers only fix a little.
 - Helped assemble interactive plushies for children at the Operation Smile Vietnam event.

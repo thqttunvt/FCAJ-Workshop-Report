@@ -12,19 +12,19 @@ pre: " <b> 1.12. </b> "
 
 ## **1. Weekly Objectives**
 
-- Finish my internship report with the verified results from my own work (data model, background jobs, AI job, matching, load test).
-- Demo the backend flows I built: AI listing, branch matching and listing expiry.
+- Finish my internship report with the verified results from my own work (data model, background jobs, matching, load test, AI model testing).
+- Demo the backend flows I built: branch matching and listing expiry.
 - Hand over clear notes on my modules so others can run and change them without me.
 
 ## **2. Weekly Execution Schedule**
 
 | Day           | Planned Task Description                                                                                                         | Target Date | Status  | Reference Material                                                                                                                                                                                               |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------- | :---------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Monday**    | • Write my part of the final report: key design, timers, background matching and the AI job, with the reasons behind each choice | 30/11/2026  | Planned | [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
+| **Monday**    | • Write my part of the final report: key design, timers, background matching and the AI tests behind choosing Kimi K3, with the reasons behind each choice | 30/11/2026  | Planned | [ReLoop Repository](https://github.com/madlyham/ReLoop/tree/main/backend/api) (`src/store/keys.ts`), [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
 | **Tuesday**   | • Finish the report: load-test results (26% → 0 `5xx`), the $11.70/month cost breakdown and lessons learned                      | 01/12/2026  | Planned | [Proposal](../../2-proposal/), [AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html)                                                                                 |
-| **Wednesday** | • Rehearse the demo of my flows with test accounts: AI listing from photos, matching to nearby branches, listing expiry          | 02/12/2026  | Planned | [Workshop 5.11](../../5-workshop/5.11-end-to-end-verification/)                                                                                                                                                  |
+| **Wednesday** | • Rehearse the demo of my flows with test accounts: matching to nearby branches, listing expiry          | 02/12/2026  | Planned | [Workshop 5.11](../../5-workshop/5.11-end-to-end-verification/)                                                                                                                                                  |
 | **Thursday**  | • Present my flows in the final live demo to the AWS mentors and answer questions on the backend design                          | 03/12/2026  | Planned | [Proposal](../../2-proposal/), [Workshop](../../5-workshop/)                                                                                                                                                     |
-| **Friday**    | • Hand over notes on my modules (key formats in `keys.ts`, timer kinds, matching rules, AI limits) and close the internship      | 04/12/2026  | Planned | [ReLoop Repository](https://github.com/madlyham/ReLoop)                                                                                                                                                          |
+| **Friday**    | • Hand over notes on my modules (key formats in `keys.ts`, timer kinds, matching rules) and close the internship      | 04/12/2026  | Planned | [ReLoop Repository](https://github.com/madlyham/ReLoop)                                                                                                                                                          |
 
 ## **3. Expected Outcomes**
 
