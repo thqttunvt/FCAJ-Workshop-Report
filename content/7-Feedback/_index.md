@@ -1,38 +1,38 @@
 ---
 title: "Sharing and Feedback"
-date: 2026-11-22
+date: 2026-11-25
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-Below are my personal reflections and constructive feedback from participating in the **First Cloud AI Journey (FCAJ)** program, shared with the hope of supporting future cohorts.
+Below are my personal reflections and constructive feedback after taking part in the **First Cloud AI Journey (FCAJ)** program, shared in the hope of contributing to the experience of future cohorts.
 
 ### Overall Evaluation
 
 **1. Working Environment**
 
-Open and hands-on. Most of my learning happened in our team channel and at the AWS Vietnam office (26th floor, Bitexco), where the events gave me a chance to meet mentors, AWS engineers and other interns in person. Questions were welcome at any level, which made it easy to admit what I did not know yet.
+Open and hands-on. Most of the learning happened in our team channel and at the AWS Vietnam office (Level 26, Bitexco), where the events let me meet the mentors, AWS engineers and other interns in person. Every question, at any level, was listened to, discussed and given feedback until we reached a result, and that helped me see which knowledge I still needed to build up.
 
 **2. Support from Mentor / Team Admin**
 
-Mentors pointed us in the right direction instead of handing over answers: they reviewed our architecture and proposal, and asked hard questions about cost and security. The admin team kept events, deadlines and report templates organized. More frequent short check-ins during the build weeks would have helped us catch problems earlier.
+The mentors pointed us in the right direction instead of handing over answers: they gave feedback on our architecture and proposal, and asked many hard questions about cost and security. The admin team kept events, deadlines and report templates clear. A mid-term session to report progress and architecture could make this even more effective.
 
 **3. Relevance of Work to Academic Major**
 
-Very relevant. I study cybersecurity, and ReLoop let me apply it to a real system: AWS WAF, Cognito sign-in, least-privilege IAM, defending the AI pipeline against visual prompt injection, and a hardening and WAF/origin-verify security review with fixes. I also worked well outside my major: serverless backend, DynamoDB design and Terraform.
+Very relevant. I study cybersecurity, and in ReLoop I was given the backend role. I had already studied some backend before, so this time, besides learning how the data flows are processed, I could also apply my knowledge to a real system. Alongside the backend, I studied the security layers the team applied to the system: AWS WAF, Cognito sign-in, IAM roles, and how WAF is used to check sign-ins and spam. Outside the project, I also got some hands-on pentest experience by trying the AWS Security Agent service on my own.
 
 **4. Learning & Skill Development Opportunities**
 
-The biggest growth was learning by building: Lambda, API Gateway, DynamoDB, Rekognition, Bedrock, Terraform and GitHub Actions on a live project. Soft skills grew too: writing a proposal, keeping a weekly worklog, reviewing teammates' code and explaining trade-offs to mentors. The six events added industry context I would not get from the code alone.
+I feel I have grown through researching and learning in the ReLoop project: WAF, CloudFront, Cognito, Lambda, API Gateway, DynamoDB, Rekognition, Bedrock, Terraform and GitHub Actions on a live project, along with comparing DynamoDB against RDS to choose the right database. My soft skills improved too: writing the proposal, keeping a weekly worklog, and writing 3 blog posts about deployment and operation steps that support learning and research, and about how to organise code changes so they do not conflict. Outside the project, the internship at AWS also let me build, on my own, a small setup that uses EC2 as a gateway, to test multi-region network latency, keep traffic routing stable over international connections and manage outbound IP addresses in one place.
 
 **5. Company Culture & Team Spirit**
 
-Our team AWSS3nt1n4L split work by strength (frontend, backend, AI, infrastructure) and helped each other whenever someone was blocked. At events the FCAJ community felt friendly and curious; the Q&A sessions often ran over time because everyone kept asking questions.
+Our team AWSS3nt1n4L split work by strength (frontend, backend, AI, infrastructure) and always helped each other whenever someone was stuck. At the events, the talks from the mentors and speakers were all valuable and worth learning from, and the FCAJ community was just as great: friendly and eager to learn, so the Q&A sessions usually ran very long.
 
 **6. Internship Policies / Benefits**
 
-The main benefits were AWS credits to build on real services, free access to AWS events and workshops, and flexible remote work between office sessions. Clearer limits on lab accounts (quotas, budget caps) at the start would make planning easier.
+The main benefits were AWS credits to build on real services, free access to AWS events and workshops, and flexible remote work between office sessions. If the account limits (quotas) had been explained at the start, the internship would have been clearer.
 
 ---
 
@@ -40,17 +40,15 @@ The main benefits were AWS credits to build on real services, free access to AWS
 
 **What did you find most satisfying during your internship?**
 
-Taking ReLoop from an idea to a live system on real AWS services in 12 weeks. The best moment was watching a real photo upload go through the whole AI pipeline (Rekognition + Bedrock) end to end, and then seeing our hardening and WAF/origin-verify security review come back with no high-severity findings after the fixes. The events at the AWS office, especially the "never-ending" Q&A at Cloud Mastery, were a close second.
+Taking ReLoop from an idea to a live system on AWS services in 12 weeks. The most memorable moment was testing the system's WAF protection. At first I sent only a few requests to see how the system reacted to spam, then I sent a large number of requests in a row, and those requests were blocked exactly as WAF had warned. After the fixes, the system no longer had bad IPs (IPs showing signs of attacks or spam) or spam requests getting through. Next was a trial run of the product: I uploaded a real photo, clicked AI analysis, and the AI described about 90% of the photo correctly, so the seller only needed to adjust a little before posting. The events at the AWS office, especially the long and lively Q&A at Cloud Mastery, were also very memorable.
 
 **What do you think the company should improve for future interns?**
 
-- Share the limits of the lab accounts (service quotas, budget caps) in week 1, so teams do not discover them mid-sprint.
-- Short, regular mentor check-ins during the build phase (weeks 4–10), not only around proposal deadlines.
-- One clear checklist with deadlines for the worklog, proposal and final report, published at the start.
+A little more Bedrock quota for Claude Sonnet would make the work more effective.
 
 **If recommending to a friend, would you suggest they intern here? Why or why not?**
 
-Yes, for anyone willing to learn on their own. You get hands-on work with real AWS services, real events and a real team product. It is not a lecture course: if you wait to be told what to do, you will fall behind.
+Yes, for anyone willing to learn on their own. Hands-on practice with AWS lets you go through a clear project process with architecture diagrams, with guidance and support from the team, and you learn even more through the events.
 
 ---
 
@@ -58,14 +56,13 @@ Yes, for anyone willing to learn on their own. You get hands-on work with real A
 
 **Do you have any suggestions to improve the internship experience?**
 
-- A mid-program demo day where teams show progress and get mentor feedback before the final presentation.
-- A shared "lessons learned" page with common problems from past cohorts (IAM permissions, CORS, quotas, cost alarms).
-- Cross-team architecture reviews, so interns learn from other teams' designs.
+- A mid-term demo where teams present their progress and get mentor feedback before the final presentation.
+- A shared "lessons learned" page on common errors with AWS services (IAM permissions and billing).
 
 **Would you like to continue this program in the future?**
 
-Yes. I want to keep improving ReLoop, stay active in the FCAJ community and work toward an AWS certification.
+Yes. I want to keep improving ReLoop and stay active in the FCAJ community.
 
 **Any other comments (free sharing):**
 
-Thank you to the mentors, the FCAJ admin team and my teammates in AWSS3nt1n4L. Twelve weeks went by fast, and I leave with far more practical cloud and security experience than I started with.
+Thank you to the mentors, the FCAJ admin team and my teammates in AWSS3nt1n4L.
