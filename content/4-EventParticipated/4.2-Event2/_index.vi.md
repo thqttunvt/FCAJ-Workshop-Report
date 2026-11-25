@@ -1,6 +1,6 @@
 ---
 title: "Sự kiện 2"
-date: 2026-11-07
+date: 2026-11-25
 weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
@@ -8,32 +8,34 @@ pre: " <b> 4.2. </b> "
 
 # **Sự kiện 2: AWS Cloud and AI Day Hanoi – Sự kiện Watch Party TP.HCM**
 
-**Ngày:** Thứ Ba, ngày 29 tháng 09 năm 2026  
+**Ngày:** Thứ Ba, 29/09/2026  
 **Thời gian:** 08:00 – 17:00 (GMT+7)  
-**Địa điểm:** Văn phòng AWS Việt Nam, Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh, Việt Nam.  
+**Địa điểm:** Văn phòng AWS Việt Nam, Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh.  
 **Vai trò:** Người tham dự  
+**Ngày sự kiện:** [Xem trên Facebook - AWS Study Group VN](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2292589671505992)  
 
 ### **Mục tiêu sự kiện**
 
-* Cập nhật những bước tiến mới nhất trong hệ sinh thái đám mây AWS và Trí tuệ nhân tạo doanh nghiệp.  
-* Khám phá các mô hình hiện đại hóa ứng dụng quy mô lớn kết hợp AI và Kubernetes.  
-* Kết nối cộng đồng chuyên gia giải pháp đám mây và các kỹ sư phần mềm tại Việt Nam.
+* Cho cộng đồng builder ở TP.HCM cùng xem trực tiếp AWS Cloud & AI Day 2026 đang diễn ra ở Hà Nội.  
+* Tạo chỗ để builder, Solution Architect và developer ngồi lại thảo luận những gì vừa nghe.  
+* Kết nối cộng đồng Cloud & AI phía Nam. Buổi Watch Party do AWS Study Group tổ chức cùng AWS Việt Nam.
 
 ### **Nội dung nổi bật**
 
-#### **Agentic AI & Phát triển phần mềm hiện đại**
-* Sự chuyển dịch từ trợ lý ảo hội thoại truyền thống sang hệ thống AI Agent có khả năng chủ động giải quyết tác vụ phức tạp.
+#### **Xem Keynote truyền từ Hà Nội**
+* Cả phòng theo dõi qua màn hình lớn ở văn phòng AWS phần chia sẻ của lãnh đạo AWS và các chuyên gia. Ba chủ đề chính là làn sóng Agentic AI, xây dựng nền tảng dữ liệu (Data Foundation) và hiện đại hóa Cloud cho doanh nghiệp.
 
-#### **Platform Engineering & Hạ tầng đám mây**
-* Xây dựng nền tảng cho lập trình viên nội bộ (IDP), điều phối container với Amazon EKS và mở rộng hạ tầng phân tán.
+#### **Thảo luận tại chỗ**
+* Trong giờ nghỉ, mọi người ngồi thành từng bàn tròn để bàn về cách đưa AI Agent từ bản thử nghiệm vào vận hành thật và cách tối ưu chi phí trên Cloud.
 
-#### **Tối ưu hóa quy trình với công cụ AI**
-* Gia tăng hiệu suất phát triển phần mềm song song với kiểm soát chi phí vận hành, độ trễ và tính sẵn sàng của hệ thống.
+### **Trải nghiệm sự kiện**
 
-### **Bài học rút ra & Ứng dụng**
+Đây là sự kiện thứ hai tôi tham gia, vào đầu tuần 3, ngay sau hôm tôi đọc đặc tả ReLoop lần đầu. Khác với xem livestream ở nhà, sau mỗi phần mọi người còn ngồi lại trao đổi với nhau, nên tôi được nghe thêm nhiều góc nhìn thực tế.
 
-* Lựa chọn kiến trúc dịch vụ phù hợp bài toán (FinOps và tối ưu chi phí) quan trọng hơn việc chạy theo công nghệ mới nhất.  
-* Tích hợp tự động hóa triển khai và giám sát log và cảnh báo lỗi CloudWatch vào vòng đời phát triển dự án thực tập ReLoop.
+### **Bài học rút ra**
+
+* Đưa AI Agent vào sản phẩm thật khó hơn nhiều so với làm bản thử: phải tính đến chi phí và cách vận hành ngay từ đầu.  
+* Nên chốt mức chi phí chấp nhận được trước, rồi mới chọn công cụ hay dịch vụ.
 
 ### **Hình ảnh sự kiện**
 

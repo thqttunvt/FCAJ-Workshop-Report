@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-During my 12-week internship, I actively participated in 6 major technology conferences, executive roundtables, engineering meetups, and community initiatives hosted by AWS Vietnam and industry partners.
+Over my 12-week internship, I joined 6 events at the AWS Vietnam office in Bitexco Financial Tower: the Buildrathon kickoff, the AWS Cloud & AI Day watch party, a fireside chat with Dr. Werner Vogels, a technical meetup, a Cloud sharing session for students, and a charity workshop with Operation Smile Vietnam. Each event is also noted in the week it happened in the Worklog.
 
 ### Events Overview
 

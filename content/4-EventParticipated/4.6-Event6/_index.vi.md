@@ -15,25 +15,34 @@ pre: " <b> 4.6. </b> "
 
 ### **Mục tiêu sự kiện**
 
-* Chia sẻ kiến thức Cloud và định hướng nghề nghiệp cho các bạn sinh viên tại TP. Hồ Chí Minh.  
-* Giải đáp các câu hỏi thực tế của sinh viên, từ định hướng đến chuyên môn về Cloud.  
-* Ôn lại nội dung một cách vui vẻ qua trò chơi Quiz trực tiếp cuối buổi.
+* Chia sẻ với sinh viên cách học Cloud sao cho thực tế.  
+* Trả lời trực tiếp các câu hỏi của sinh viên về nền tảng kỹ thuật, kỹ năng cần có và con đường đi làm Cloud.  
+* Tạo chỗ để các bạn sinh viên thích công nghệ gặp nhau, trao đổi và học cùng nhau.
 
 ### **Nội dung nổi bật**
 
-#### **Hỏi đáp mở kéo dài**
-* Phần hỏi đáp kéo dài hơn dự kiến rất nhiều. Các bạn sinh viên đặt những câu hỏi rất thực tế và hay: nên bắt đầu học Cloud từ đâu, kỹ năng nào quan trọng, và phát triển sự nghiệp Cloud như thế nào.
+#### **Chia sẻ kiến thức Cloud và định hướng nghề nghiệp**
+* Gợi ý lộ trình học và những kỹ năng nên ưu tiên khi mới bắt đầu với Cloud.  
+* Nói về các hướng đi nghề nghiệp trong ngành Cloud, dựa trên chính câu hỏi của người tham dự.
 
-#### **Game Quiz cuối buổi**
-* Trò chơi Quiz.com trực tiếp khép lại buổi chia sẻ. Trò chơi thu hút hơn 100 người tham gia (119 người tại thời điểm chụp ảnh) và nhận được sự hưởng ứng rất nồng nhiệt.
+#### **Hỏi đáp với sinh viên**
+* Các câu hỏi xoay quanh chuyện bị "kẹt" lúc mới học, nên chọn dự án nào để làm, và làm sao để hiểu sâu hơn về kỹ thuật.  
+* Mọi người hỏi nhiều và hỏi tiếp liên tục nên phần hỏi đáp kéo dài vượt xa thời gian ban đầu.
 
-#### **Sự kiện được giới thiệu tại buổi chia sẻ (23/11/2026)**
-* Ban tổ chức giới thiệu thêm một sự kiện Cloud khác dành cho sinh viên diễn ra vào ngày 23/11/2026: **AWS Student Community Day Vietnam 2026**.
+#### **Quiz cuối buổi và sự kiện sắp tới**
+* Buổi sáng kết thúc bằng một game Quiz trực tiếp với hơn 100 người chơi để ôn lại nội dung.  
+* Cuối buổi có thông báo về AWS Student Community Day Vietnam 2026, diễn ra ngày 23/11/2026.
 
 ### **Trải nghiệm sự kiện**
 
-Rất vui khi thấy nhiều bạn sinh viên quan tâm đến Cloud. Các câu hỏi đều thực tế, và nghe phần trả lời giúp tôi liên hệ những gì đang xây dựng trong ReLoop với cách người khác lên kế hoạch học tập và sự nghiệp Cloud. Game Quiz là cách vui để kiểm tra mình nhớ được gì sau buổi chia sẻ.
+Sáng thứ Bảy 14/11 ở văn phòng AWS là một buổi rất thoải mái và gần gũi. Nhìn các bạn sinh viên hỏi liên tục trong phần hỏi đáp và cùng hơn 100 người chơi Quiz cuối buổi, tôi có dịp nhìn lại chặng đường của mình trong FCAJ: từ tự học AWS ở những tuần đầu đến làm backend cho ReLoop.
+
+### **Bài học rút ra**
+
+* Nền tảng Cloud chỉ thật sự có giá trị khi đi cùng dự án thực tế và ý thức về bảo mật.  
+* Chủ động hỏi và trao đổi với bạn bè, mentor giúp mình học nhanh hơn và biết rõ mình muốn đi hướng nào.  
+* Buổi này giúp tôi nhìn lại những kỹ năng Cloud và bảo mật đã có sau kỳ thực tập, thấy rõ chỗ cần học thêm, và muốn tiếp tục tham gia cộng đồng AWS.
 
 ### **Hình ảnh sự kiện**
 
-![Tham gia game Quiz của Cloud Mastery trên Quiz.com](/images/report/event6-cloud-mastery.jpg)
+![Chơi Quiz cuối buổi Cloud Mastery trên Quiz.com](/images/report/event6-cloud-mastery.jpg)

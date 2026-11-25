@@ -15,21 +15,21 @@ pre: " <b> 4.5. </b> "
 
 ### **Event Objectives**
 
-* Apply technology and creative engineering toward meaningful social impact.  
-* Introduce interactive, IoT-enabled educational plush toys for pediatric patients.  
-* Collaborate with Operation Smile Vietnam to bring comfort to hospitalized children.
+* Use technology and creativity for a good cause.  
+* Build and program smart plush toys, with sensors and sound, for children being treated in hospital.  
+* Work with Operation Smile Vietnam to bring some joy to those children.
 
 ### **Key Highlights**
 
-#### **Technology for Social Impact**
-* Demonstrating that engineering skills create tangible value when channeled toward empathetic, human-centric solutions.
+#### **Technology for the Community**
+* Technical skills mean more when they are used to help other people.
 
-#### **Hands-on Assembly & Collaboration**
-* Interactive sensor integration, audio feedback programming, and working alongside cross-functional colleagues.
+#### **Building Together**
+* We fitted the sensors, set up the sound responses and finished the plushies together with the other participants.
 
 ### **Event Experience**
 
-Participating in this workshop stood out from purely technical cloud sessions. It served as a powerful reminder that technology achieves its highest purpose when improving human lives and bringing smiles to children.
+This workshop felt very different from the Cloud sessions I usually attended. It reminded me that technology is most worth it when it makes people's lives better, and here that meant bringing a smile to sick children. Finishing a plushie with my own hands for the children was a really happy feeling too.
 
 ### **Event Photos**
 

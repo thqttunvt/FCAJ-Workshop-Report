@@ -15,25 +15,34 @@ pre: " <b> 4.6. </b> "
 
 ### **Event Objectives**
 
-* Share cloud knowledge and career guidance with students across Ho Chi Minh City.  
-* Answer real questions from students, from career direction to hands-on cloud skills.  
-* Review the content in a fun way with a live quiz game at the end.
+* Show students how to learn Cloud in a practical way.  
+* Answer students' own questions about technical basics, the skills they need and the path to a Cloud job.  
+* Give students who like technology a place to meet, talk and study side by side.
 
 ### **Key Highlights**
 
-#### **Extended Open Q&A**
-* The Q&A part ran much longer than planned. Students asked very practical questions about where to start in cloud, which skills matter, and how to grow a cloud career.
+#### **Cloud Knowledge and Career Direction**
+* Suggested a learning path and the skills to focus on first when starting with Cloud.  
+* Talked about the career paths in Cloud, based on the questions the attendees asked.
 
-#### **Quiz Game at the End**
-* A live Quiz.com game closed the session. Over 100 players joined (119 at the time of the photo) and the room was very lively.
+#### **Q&A with Students**
+* The questions were about getting stuck as a beginner, which project to build, and how to go deeper technically.  
+* People kept asking and following up, so the Q&A ran a lot longer than planned.
 
-#### **Upcoming Event Announced at the Session (23/11/2026)**
-* The organizers highlighted another student-focused cloud event scheduled for 23/11/2026: **AWS Student Community Day Vietnam 2026**.
+#### **Closing Quiz and the Next Event**
+* At the end of the morning, more than 100 players joined a live Quiz to go over what we had heard.  
+* The organizers introduced AWS Student Community Day Vietnam 2026, taking place on 23/11/2026.
 
 ### **Event Experience**
 
-It was good to see so many students interested in cloud. The questions were real and practical, and hearing the answers helped me connect what I am building in ReLoop with how others plan their cloud learning and careers. The quiz was a fun way to check what stuck from the session.
+Saturday morning, 14/11, at the AWS office felt relaxed and friendly. Watching students ask question after question in the Q&A, and playing the closing quiz with more than 100 others, gave me a moment to look back at my own FCAJ path: from studying AWS on my own in the first weeks to building the backend for ReLoop.
+
+### **Key Takeaways**
+
+* Cloud fundamentals only really pay off when you also build real projects and pay attention to security.  
+* Asking questions and sharing with friends and mentors helps you learn faster and see more clearly which way you want to go.  
+* The session helped me look back at the Cloud and security skills I have after the internship, see what I still need to learn, and made me want to keep joining AWS community events.
 
 ### **Event Photos**
 
-![Joined the Cloud Mastery quiz game on Quiz.com](/images/report/event6-cloud-mastery.jpg)
+![Playing the closing Quiz of Cloud Mastery on Quiz.com](/images/report/event6-cloud-mastery.jpg)

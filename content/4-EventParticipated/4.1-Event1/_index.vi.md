@@ -1,6 +1,6 @@
 ---
 title: "Sự kiện 1"
-date: 2026-11-07
+date: 2026-11-25
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
@@ -8,43 +8,41 @@ pre: " <b> 4.1. </b> "
 
 # **Sự kiện 1: Buildrathon – Khởi động: Kiến tạo tương lai cùng CMC Global**
 
-**Ngày:** Thứ Bảy, ngày 26 tháng 09 năm 2026  
-**Thời gian:** 10:30 – 12:00 (GMT+7)  
-**Địa điểm:** Văn phòng AWS Việt Nam, Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 Hải Triều, TP. Hồ Chí Minh, Việt Nam.  
+**Ngày:** Thứ Bảy, 26/09/2026  
+**Thời gian:** 09:00 – 12:00 (GMT+7)  
+**Địa điểm:** Văn phòng AWS Việt Nam, Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh.  
 **Vai trò:** Người tham gia  
+**Ngày sự kiện:** [Xem trên Facebook - AWS Study Group VN](https://www.facebook.com/groups/660548818043427/?multi_permalinks=2291343874963905)  
 
 ### **Mục tiêu sự kiện**
 
-* Giới thiệu cuộc thi thử thách công nghệ Buildrathon, mục tiêu và tiêu chí đánh giá.  
-* Cung cấp góc nhìn tổng quan về điện toán đám mây AWS, Generative AI và công nghệ AI Agent.  
-* Thúc đẩy tinh thần đổi mới sáng tạo và làm việc nhóm giữa các thành viên tham gia.  
-* Chia sẻ định hướng phát triển nghề nghiệp trong lĩnh vực Cloud Computing và Trí tuệ nhân tạo.  
-* Mang lại trải nghiệm thực tiễn về cách xây dựng các giải pháp ứng dụng AI.
+* Mở màn thử thách Buildrathon cho các bạn thực tập sinh FCAJ.  
+* Khuyến khích dùng Cloud & AI để cùng đồng đội làm ra sản phẩm thật, không chỉ học để biết (thông điệp trên poster sự kiện).  
+* Nghe chia sẻ kinh nghiệm làm việc thực tế từ doanh nghiệp.
 
 ### **Diễn giả**
 
-Chương trình có sự góp mặt của các chuyên gia công nghệ và kỹ sư giàu kinh nghiệm từ AWS và CMC Global chia sẻ kinh nghiệm thực tế về điện toán đám mây, trí tuệ nhân tạo và phát triển sự nghiệp.
+* **Thien Lu** – Program Manager, FCAJ.  
+* **Truong Bui** – Tech Lead, CMC Global.  
+* **Phong Pham** – Program Manager, FCAJ.
 
 ### **Nội dung nổi bật**
 
-#### **Tổng quan về Buildrathon**
-* Giới thiệu đề bài thử thách phát triển sản phẩm công nghệ và tiêu chí chấm điểm từ ban giám khảo.  
-* Hiểu cách các kiến trúc đám mây hiện đại kết hợp AI tạo nên các sản phẩm phần mềm đột phá.
+#### **Mở màn Buildrathon**
+* Đội ngũ chương trình FCAJ mở màn Buildrathon và giới thiệu cách thử thách diễn ra.
 
-#### **Điện toán đám mây và Generative AI**
-* Ứng dụng thực tế của hệ sinh thái đám mây AWS trong việc hiện thực hóa các giải pháp phần mềm hiện đại.  
-* Cơ chế hoạt động của AI Agents khi tương tác với các công cụ và API bên ngoài.
+### **Trải nghiệm sự kiện**
 
-#### **Định hướng nghề nghiệp Cloud & AI**
-* Xu hướng phát triển thị trường công nghệ và tầm quan trọng của việc tích lũy kinh nghiệm qua các dự án thực chiến.
+Đây là sự kiện đầu tiên tôi tham gia trong kỳ thực tập, vào tuần thứ 2, khi tôi vẫn đang tự học AWS. Sau buổi khởi động, nhóm tôi chọn ReLoop, chợ mua bán đồ điện tử cũ và hỏng, làm đề tài capstone.
 
-#### **Thử thách AI Agent**
-* Kỹ thuật thiết kế prompt (Prompt Engineering) và kiến trúc Retrieval-Augmented Generation (RAG).
+### **Ấn tượng nhất: phần chia sẻ của anh Truong Bui (CMC Global)**
 
-### **Bài học rút ra & Ứng dụng**
+CMC Global có đội ngũ bên Úc và các developer ở Việt Nam. Anh Truong chia sẻ cách kết nối hai bên qua Slack để có thể trao đổi trực tiếp với nhau, và quy trình xử lý các cuộc trò chuyện hay các bug được báo qua Slack.
 
-* Tìm hiểu cách kết nối backend serverless trên AWS với quy trình phân loại thiết bị bằng AI đa phương thức.  
-* Vận dụng trực tiếp các kỹ thuật thiết kế prompt và quản lý ngữ cảnh có cấu trúc vào module phân loại thiết bị của dự án ReLoop.
+**Bài học rút ra:**
+
+* Muốn đưa việc trao đổi giữa hai team lên Slack thì trước hết cần huấn luyện AI Agent để nó phân biệt được lỗi nhẹ hay lỗi nặng khi xử lý.  
+* Hơn thế nữa, cần tính đến việc AI Agent sẽ hỗ trợ hai bên như thế nào để hai team dễ hiểu nhau.
 
 ### **Hình ảnh sự kiện**
 

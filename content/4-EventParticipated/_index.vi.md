@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-Trong suốt 12 tuần thực tập, tôi đã tích cực tham gia 6 sự kiện công nghệ quy mô lớn, tọa đàm lãnh đạo, hội thảo chuyên sâu và hoạt động cộng đồng do AWS Việt Nam cùng các đối tác tổ chức.
+Trong 12 tuần thực tập, tôi tham gia 6 sự kiện tại văn phòng AWS Việt Nam ở Bitexco: buổi khởi động Buildrathon, buổi xem trực tiếp AWS Cloud & AI Day, buổi trò chuyện với Dr. Werner Vogels, một buổi meetup kỹ thuật, một buổi chia sẻ Cloud cho sinh viên và một hoạt động thiện nguyện cùng Operation Smile Vietnam. Mỗi sự kiện cũng được ghi lại ở đúng tuần diễn ra trong phần Worklog.
 
 ### Danh sách các sự kiện đã tham gia
 

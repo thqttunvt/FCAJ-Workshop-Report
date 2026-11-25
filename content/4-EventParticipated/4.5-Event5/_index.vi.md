@@ -15,21 +15,21 @@ pre: " <b> 4.5. </b> "
 
 ### **Mục tiêu sự kiện**
 
-* Ứng dụng công nghệ và sự sáng tạo vào các hoạt động thiện nguyện mang lại giá trị nhân văn cho cộng đồng.  
-* Lắp ráp và lập trình đồ chơi gấu bông tương tác thông minh hỗ trợ các bệnh nhi trong quá trình điều trị y tế.  
-* Phối hợp chặt chẽ cùng tổ chức Operation Smile Vietnam mang lại niềm vui cho trẻ em.
+* Dùng công nghệ và sự sáng tạo cho một việc có ích.  
+* Lắp ráp và lập trình gấu bông thông minh, có cảm biến và phát âm thanh, dành cho các bé đang điều trị ở bệnh viện.  
+* Cùng Operation Smile Vietnam mang lại niềm vui cho các bé.
 
 ### **Nội dung nổi bật**
 
-#### **Công nghệ vì cộng đồng**
-* Khẳng định vai trò của kỹ năng kỹ thuật khi được kết hợp với sự thấu cảm xã hội để tạo nên những sản phẩm giàu ý nghĩa.
+#### **Công nghệ cho cộng đồng**
+* Kỹ năng kỹ thuật có ý nghĩa hơn khi được dùng để giúp người khác.
 
-#### **Thực hành lắp ráp & Làm việc nhóm**
-* Tích hợp cảm biến tương tác, cài đặt module phản hồi âm thanh và cùng nhau hoàn thiện sản phẩm với các đồng nghiệp.
+#### **Cùng nhau lắp ráp**
+* Gắn cảm biến, cài phần phát âm thanh và cùng các bạn khác hoàn thiện chú gấu bông.
 
 ### **Trải nghiệm sự kiện**
 
-Sự kiện là một trải nghiệm đặc biệt và đáng nhớ trong kỳ thực tập tại AWS. Bên cạnh những giờ làm việc với hạ tầng kỹ thuật phức tạp, hoạt động này giúp tôi nhận thức sâu sắc rằng mục tiêu cao đẹp nhất của công nghệ là phục vụ con người và mang lại nụ cười cho trẻ em.
+Buổi này khác hẳn những buổi chia sẻ về Cloud mà tôi thường tham gia. Nó nhắc tôi rằng công nghệ đáng giá nhất khi giúp cuộc sống con người tốt hơn, như ở đây là mang lại nụ cười cho các bé đang bị bệnh. Tự tay làm xong một chú gấu bông để gửi tới các bé cũng là một cảm giác rất vui.
 
 ### **Hình ảnh sự kiện**
 

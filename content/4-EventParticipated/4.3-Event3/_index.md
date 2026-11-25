@@ -1,6 +1,6 @@
 ---
 title: "Event 3"
-date: 2026-11-07
+date: 2026-11-25
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
@@ -8,31 +8,48 @@ pre: " <b> 4.3. </b> "
 
 # **Event 3: Fireside Chat with Dr. Werner – Navigating the Future of Cloud & AI in Vietnam**
 
-**Date:** Friday, October 2, 2026  
+**Date:** Friday, 02/10/2026  
 **Time:** 10:30 AM – 12:00 PM (GMT+7)  
-**Location:** Amazon Web Services Vietnam Office, Level 26, Bitexco Financial Tower, 02 Hai Trieu Street, Ho Chi Minh City, Vietnam.  
+**Location:** AWS Vietnam Office, 26th Floor, Bitexco Financial Tower, Ho Chi Minh City.  
 **Role:** Attendee  
+**Event Video:** [View On YouTube - AWS Study Group Channel](https://www.youtube.com/watch?v=jWjOIfMA9qc)  
 
 ### **Event Objectives**
 
-* Gain high-level architectural insights from Dr. Werner Vogels, CTO of Amazon.  
-* Understand how globally resilient distributed systems are engineered and operated at massive scale.  
-* Discuss technology evolution and the strategic opportunities for Vietnam's software ecosystem.
+* Hear Dr. Werner Vogels talk about the road ahead for Cloud and AI in Vietnam.  
+* Learn how AWS builds and runs very large distributed systems, from the person in charge of Amazon's technology.  
+* Understand how the work of a software engineer is changing now that AI is here.
+
+### **Speaker**
+
+* **Dr. Werner Vogels** – CTO, Amazon.
 
 ### **Key Highlights**
 
-#### **Engineering at Global Scale**
-* "Everything fails, all the time" — designing systems that embrace continuous failure through decoupling and fault isolation.  
-* Prioritizing long-term maintainability, asynchronous communication, and idempotency over fragile synchronous chains.
+#### **Where AWS Started**
+* The story of how AWS began and grew, from serving small startups to global enterprises.  
+* The original idea: infrastructure has to be reliable, and builders should be able to use it on their own without waiting for anyone to provision it.
 
-#### **Generative AI & Practical Engineering Mindset**
-* Building systems for real-world reliability rather than theoretical benchmarks.  
-* The intersection of FinOps, cost awareness, and sustainable cloud computing.
+#### **Running Systems at Large Scale**
+* With huge numbers of users and requests, reliability, automation and horizontal scaling have to be planned from the design stage, not left for later.
 
-### **Key Takeaways & Application**
+#### **The "Renaissance Developer"**
+* An engineer in the AI era needs solid computer science fundamentals and also knows how to use AI to work at a higher level.
 
-* Reinforced our ReLoop design decisions: single-table DynamoDB design, conditional concurrency control, and asynchronous background processing.
+#### **AI Makes Prototypes Fast, but the Engineer Is Still Responsible**
+* AI greatly shortens the time from an idea to a working prototype.  
+* Even when AI writes the code, the engineer is still the one responsible for its quality, its correctness and the architecture choices.
+
+### **Event Experience**
+
+This session came at the end of Week 3, the same day I took the Backend Engineer role in the ReLoop team. Hearing Amazon's CTO tell how AWS started, and talk about the developer's role now that AI is here, was a very rare chance for me.
+
+### **Key Takeaways**
+
+* AI makes things faster, but what AI produces still has to be checked before it goes into a real system. Later in ReLoop, the AI job I built follows the same idea: an AI answer that does not match the listing schema is never saved.  
+* Working with AI makes the fundamentals even more important: you have to understand the system to tell whether the AI got it right.  
+* Design so the system can grow, but stay close to the real needs and do not build more than required.
 
 ### **Event Photos**
 
-![Fireside Chat with Dr. Werner Vogels at AWS Vietnam Office, Bitexco Financial Tower](/images/report/image8.png)
+![With friends at the Fireside Chat with Dr. Werner, AWS Vietnam Office (02/10/2026)](/images/report/image8.png)
