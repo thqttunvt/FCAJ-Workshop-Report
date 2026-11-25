@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Nhật ký này ghi lại 12 tuần thực tập của tôi tại Amazon Web Services Việt Nam (Workforce Bootcamp - First Cloud AI Journey, từ 14/09/2026 đến 04/12/2026). Tuần 1–10 đã hoàn thành; Tuần 11–12 là kế hoạch và được ghi rõ là dự kiến. Hai tuần đầu tôi tự học nền tảng AWS và các dịch vụ serverless rồi tự thử trên Console. Sau đó tôi đảm nhận vai trò **Backend Engineer** của dự án **ReLoop**, một chợ trực tuyến serverless trên AWS giúp người dùng bán đồ điện tử cũ hoặc hỏng cho tiệm sửa chữa, người buôn lại và đơn vị tái chế gần nhà. Phần của tôi là thiết kế khóa DynamoDB, quy tắc nghiệp vụ, hẹn giờ không cần scan và ghép chi nhánh. Về phần AI, tôi tự test các model phân tích ảnh và chọn Kimi K3 cho ReLoop. Mỗi tuần liệt kê việc tôi làm theo từng ngày.
+Nhật ký này ghi lại 12 tuần thực tập của tôi tại Amazon Web Services Việt Nam (Workforce Bootcamp - First Cloud AI Journey, từ 14/09/2026 đến 04/12/2026). Nhật ký ghi lại công việc tới ngày 25/11/2026 (Tuần 1–11). Hai tuần đầu tôi tự học nền tảng AWS và các dịch vụ serverless rồi tự thử trên Console. Sau đó tôi đảm nhận vai trò **Backend Engineer** của dự án **ReLoop**, một chợ trực tuyến serverless trên AWS giúp người dùng bán đồ điện tử cũ hoặc hỏng cho tiệm sửa chữa, người buôn lại và đơn vị tái chế gần nhà. Phần của tôi là thiết kế khóa DynamoDB, quy tắc nghiệp vụ, hẹn giờ không cần scan và ghép chi nhánh. Về phần AI, tôi tự test các model phân tích ảnh và chọn Kimi K3 cho ReLoop. Mỗi tuần liệt kê việc tôi làm theo từng ngày.
 
 Song song với dự án, tôi đã tham gia **6 sự kiện** do AWS Việt Nam và các đối tác tổ chức. Mỗi sự kiện được đối chiếu trong tuần diễn ra và mô tả chi tiết ở mục [Các sự kiện đã tham gia](../4-eventparticipated/).
 
@@ -27,5 +27,4 @@ Song song với dự án, tôi đã tham gia **6 sự kiện** do AWS Việt Nam
 - **Tuần 9:** [Phần backend trong Đề xuất Phần 2, Rà soát chi phí Cost Explorer & Sự kiện Cloud Mastery](1.9-week9/)  
   _(Đối chiếu: [Sự kiện 6: Cloud Mastery – Cloud Sharing Session for Students](../4-eventparticipated/4.6-event6/) ngày 14/11/2026)_
 - **Tuần 10:** [Chạy lại load test: 5xx từ 26% về 0, Kiểm tra giới hạn tốc độ & Ghi lại kết quả](1.10-week10/)
-- **Tuần 11:** [Dọn tài nguyên thừa của tôi, Kiểm tra lại module & Kiểm tra chi phí cuối [Dự kiến]](1.11-week11/)
-- **Tuần 12:** [Báo cáo cuối, Demo trực tiếp các luồng backend của tôi & Bàn giao [Dự kiến]](1.12-week12/)
+- **Tuần 11:** [Dọn tài nguyên thừa & Access key không dùng của tôi](1.11-week11/)
