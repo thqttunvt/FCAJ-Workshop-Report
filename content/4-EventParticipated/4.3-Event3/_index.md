@@ -46,7 +46,7 @@ This session came at the end of Week 3, the same day I took the Backend Engineer
 
 ### **Key Takeaways**
 
-* AI makes things faster, but what AI produces still has to be checked before it goes into a real system. Later in ReLoop, the AI job I built follows the same idea: an AI answer that does not match the listing schema is never saved.  
+* AI makes things faster, but what AI produces still has to be checked before it goes into a real system. Later, when I tested image-analysis AI for ReLoop, I also checked each answer against the real photo before choosing Kimi K3.  
 * Working with AI makes the fundamentals even more important: you have to understand the system to tell whether the AI got it right.  
 * Design so the system can grow, but stay close to the real needs and do not build more than required.
 

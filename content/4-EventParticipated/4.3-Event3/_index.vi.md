@@ -46,7 +46,7 @@ Buổi này rơi vào cuối tuần 3, cũng là hôm tôi nhận vai trò Backe
 
 ### **Bài học rút ra**
 
-* AI giúp làm nhanh, nhưng kết quả AI đưa ra vẫn phải được kiểm tra trước khi vào hệ thống thật. Sau này trong ReLoop, job AI tôi làm cũng theo đúng tinh thần đó: câu trả lời của AI không khớp schema tin đăng thì không bao giờ được lưu.  
+* AI giúp làm nhanh, nhưng kết quả AI đưa ra vẫn phải được kiểm tra trước khi vào hệ thống thật. Sau này khi tự test AI phân tích ảnh cho ReLoop, tôi cũng đối chiếu từng câu trả lời với ảnh thật trước khi chọn Kimi K3.  
 * Làm việc cùng AI thì kiến thức nền càng quan trọng: phải hiểu hệ thống mới biết AI làm đúng hay sai.  
 * Thiết kế để hệ thống lớn lên được, nhưng vẫn bám vào nhu cầu thực tế, không làm quá mức cần.
 
