@@ -1,6 +1,6 @@
 ---
 title: "Tự đánh giá"
-date: 2026-11-22
+date: 2026-11-25
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
@@ -8,41 +8,41 @@ pre: " <b> 6. </b> "
 
 ## Báo cáo tự đánh giá kết quả thực tập
 
-Trong suốt thời gian thực tập tại **Công ty TNHH Amazon Web Services Việt Nam (Workforce Bootcamp - First Cloud AI Journey)** từ **14/09/2026 đến 04/12/2026**, tôi đã có cơ hội quý báu để học hỏi, thực hành và áp dụng các kiến thức chuyên ngành An toàn thông tin và Điện toán đám mây tích lũy tại Đại học FPT vào môi trường làm việc thực tế.
+Tôi thực tập tại **Công ty TNHH Amazon Web Services Việt Nam (Workforce Bootcamp - First Cloud AI Journey)** từ **14/09/2026 đến 04/12/2026**. Là sinh viên ngành An toàn thông tin tại Đại học FPT, đây là lần đầu tôi được áp dụng những gì đã học vào một hệ thống chạy thật trên AWS.
 
-Với vai trò **Trưởng nhóm (Team Lead)** của nền tảng **ReLoop**, tôi đồng thời trực tiếp tham gia xây dựng mảng Backend AI, bảo mật và hạ tầng đám mây – thiết kế pipeline nhận diện thiết bị và kiểm duyệt nội dung tự động sử dụng Amazon Bedrock (thử nghiệm ban đầu bằng Amazon Nova Pro và sau đó chuyển sang Kimi K3 trên Amazon Bedrock), Amazon Rekognition, cấu trúc bảng đơn DynamoDB và Amazon Bedrock Guardrails để phòng thủ tấn công visual prompt injection. Qua dự án này, tôi đã nâng cao rõ rệt năng lực chuyên môn về kiến trúc Serverless, tích hợp công cụ AI đa phương thức, DevSecOps, Hạ tầng dưới dạng mã (Terraform), đồng thời rèn luyện kỹ năng viết tài liệu kỹ thuật, rà soát mã nguồn (code review) và cộng tác nhóm linh hoạt theo mô hình Agile.
+Hai tuần đầu tôi tự học nền tảng AWS và các dịch vụ serverless. Sau đó tôi nhận vai trò **Backend Engineer** trong nhóm **ReLoop**, một chợ mua bán đồ điện tử cũ và hỏng chạy serverless trên AWS. Phần tôi phụ trách gồm: thiết kế khóa DynamoDB một bảng (`keys.ts`), các quy tắc nghiệp vụ backend, timer chạy nền không dùng `Scan` (`timers.ts`) gắn với EventBridge, ghép tin đăng với chi nhánh gần nhất bằng geohash, và chạy lại load test để xác nhận lỗi `5xx` giảm từ 26% về 0. Về phần AI, tôi tự test các model phân tích ảnh và chọn Kimi K3 cho ReLoop. Tôi cũng viết phần backend cho Proposal Phần 1 và Phần 2, và 3 bài blog về bảo mật trên AWS.
 
-Về thái độ làm việc, tôi luôn nêu cao tinh thần trách nhiệm, chủ động hoàn thành các đầu việc được giao, tuân thủ nghiêm ngặt các quy tắc bảo mật doanh nghiệp, tích cực trao đổi cùng đồng nghiệp giữa các nhóm frontend và backend để giải quyết điểm nghẽn kỹ thuật, đảm bảo tiến độ xuyên suốt 12 tuần làm việc.
+Về thái độ làm việc, tôi cố gắng hoàn thành đúng hạn các phần được giao, viết tài liệu dựa trên code thật để mọi số liệu đều kiểm chứng được, và trao đổi với nhóm khi gặp vướng mắc.
 
-Để nhìn nhận khách quan quá trình thực tập, tôi tự đánh giá bản thân theo các tiêu chí sau:
+Tôi tự đánh giá bản thân theo các tiêu chí sau:
 
 | STT | Tiêu chí đánh giá | Mô tả | Tốt | Khá | Trung bình | Nhận xét cụ thể |
 | :---: | :--- | :--- | :---: | :---: | :---: | :--- |
-| 1 | **Kiến thức & kỹ năng chuyên môn** | Nắm vững chuyên môn, áp dụng thực tế, sử dụng thành thạo công cụ, chất lượng công việc | ☐ | ✅ | ☐ | Xây dựng stack AI serverless, bảo mật và Terraform cho ReLoop (Bedrock, Rekognition, DynamoDB), đồng thời tiếp tục rèn chiều sâu thiết kế khóa và đánh đổi chi phí. |
-| 2 | **Khả năng học hỏi** | Khả năng tiếp thu kiến thức mới và tốc độ nắm bắt công việc | ✅ | ☐ | ☐ | Tiếp thu nhanh 12 dịch vụ AWS quản lý, Terraform IaC và Bedrock Guardrails trong suốt 12 tuần bootcamp FCAJ. |
-| 3 | **Tính chủ động** | Tinh thần tự giác, chủ động tìm kiếm công việc mà không chờ nhắc nhở | ✅ | ☐ | ☐ | Chủ động rà soát đặc tả (45 quyết định nghiệp vụ), thực hiện red-team prompt injection và chuyển model từ Nova Pro sang Kimi K3 dựa trên số liệu đo thực tế. |
-| 4 | **Ý thức trách nhiệm** | Hoàn thành công việc đúng hạn và đảm bảo chất lượng cam kết | ✅ | ☐ | ☐ | Hoàn thành Đề xuất Phần 1–2, xác thực trực tiếp Workshop (5.1–5.12) và 3 bài blog trên AWS Study Group đúng tiến độ với số liệu đã kiểm chứng. |
-| 5 | **Tính kỷ luật** | Tuân thủ giờ giấc, nội quy và quy trình làm việc | ☐ | ✅ | ☐ | Tuân thủ đều đặn giờ giấc và quy định bảo mật, đồng thời siết chặt kỷ luật vận hành về đặt tên nhánh, nhịp độ sprint và triển khai qua một luồng CI/CD duy nhất. |
-| 6 | **Tinh thần cầu tiến** | Sẵn sàng lắng nghe góp ý và không ngừng hoàn thiện bản thân | ✅ | ☐ | ☐ | Tích cực tiếp thu góp ý từ mentor và 5 đợt QA (146 mục) để cải thiện độ chính xác AI tiếng Việt, xử lý throttling và gia cố khóa nguồn. |
-| 7 | **Kỹ năng giao tiếp** | Khả năng trình bày ý tưởng và báo cáo công việc rõ ràng, mạch lạc | ☐ | ✅ | ☐ | Trao đổi hiệu quả trong nhóm và tài liệu kỹ thuật, đồng thời cần cải thiện báo cáo vướng mắc sớm hơn tới mentor theo cấu trúc vấn đề – tác động – phương án. |
-| 8 | **Làm việc nhóm** | Phối hợp hiệu quả với đồng nghiệp và tích cực trong hoạt động nhóm | ✅ | ☐ | ☐ | Phối hợp nhịp nhàng trong nhóm ReLoop 5 thành viên (frontend, backend lõi, AI và IaC), thống nhất hợp đồng API, code review và quy tắc triển khai chung. |
-| 9 | **Tác phong làm việc** | Tôn trọng đồng nghiệp, đối tác và văn hóa doanh nghiệp | ✅ | ☐ | ☐ | Duy trì tác phong tôn trọng, xây dựng với mentor AWS, đồng đội và đối tác cộng đồng xuyên suốt 6 sự kiện FCAJ và các buổi làm việc tại văn phòng. |
-| 10 | **Kỹ năng giải quyết vấn đề** | Nhận diện vấn đề, đề xuất giải pháp sáng tạo và khả thi | ☐ | ✅ | ☐ | Giải quyết các sự cố thực tế như lỗi 5xx do giới hạn Lambda và visual prompt injection, đồng thời chuyển từ vá nhanh cục bộ sang phân tích nguyên nhân gốc bài bản. |
-| 11 | **Đóng góp cho dự án/tập thể** | Hiệu quả công việc thực tế, sáng kiến và sự ghi nhận từ nhóm | ✅ | ☐ | ☐ | Đảm nhiệm vai trò Team Lead, trực tiếp hoàn thiện hạ tầng Terraform, pipeline Bedrock Kimi K3 + Guardrails (độ chính xác tăng từ 40% lên 92%) và tài liệu kỹ thuật. |
-| 12 | **Đánh giá chung** | Nhận định tổng thể về toàn bộ quá trình thực tập | ✅ | ☐ | ☐ | Trưởng thành rõ rệt về kiến trúc đám mây, DevSecOps và dẫn dắt nhóm, cùng kế hoạch hành động cụ thể để khắc phục các điểm còn hạn chế. |
+| 1 | **Kiến thức & kỹ năng chuyên môn** | Nắm vững chuyên môn, áp dụng thực tế, sử dụng thành thạo công cụ, chất lượng công việc | ☐ | ✅ | ☐ | Dùng được DynamoDB, Lambda, API Gateway, EventBridge và S3 cho phần backend của ReLoop; vẫn cần học sâu hơn về giới hạn của từng dịch vụ và các trường hợp lỗi. |
+| 2 | **Khả năng học hỏi** | Khả năng tiếp thu kiến thức mới và tốc độ nắm bắt công việc | ✅ | ☐ | ☐ | Tự học nền tảng AWS và serverless trong 2 tuần đầu, đến tuần 4 đã bắt đầu viết code backend (`keys.ts`, 09/10/2026). |
+| 3 | **Tính chủ động** | Tinh thần tự giác, chủ động tìm kiếm công việc mà không chờ nhắc nhở | ✅ | ☐ | ☐ | Chủ động rà đặc tả để đưa các quy tắc backend vào sổ quyết định chung, tự test các model AI phân tích ảnh để chọn model cho nhóm, và tự thử thêm AWS Security Agent ngoài dự án. |
+| 4 | **Ý thức trách nhiệm** | Hoàn thành công việc đúng hạn và đảm bảo chất lượng cam kết | ☐ | ✅ | ☐ | Nộp phần backend cho Proposal Phần 1 (08/10) và Phần 2 (13/11) đúng hạn; cần kiểm tra kỹ hơn các trường hợp lỗi trước khi bàn giao một tính năng. |
+| 5 | **Tính kỷ luật** | Tuân thủ giờ giấc, nội quy và quy trình làm việc | ☐ | ✅ | ☐ | Ghi worklog đều hằng tuần và làm theo quy tắc chung của nhóm; cần dọn tài nguyên tự tạo ngay sau khi thử thay vì để dồn lại cuối kỳ. |
+| 6 | **Tinh thần cầu tiến** | Sẵn sàng lắng nghe góp ý và không ngừng hoàn thiện bản thân | ✅ | ☐ | ☐ | Tiếp thu các câu hỏi của mentor về chi phí và bảo mật; tự tìm hiểu thêm các lớp bảo mật của hệ thống (WAF, Cognito, IAM) dù đó không phải phần tôi phụ trách. |
+| 7 | **Kỹ năng giao tiếp** | Khả năng trình bày ý tưởng và báo cáo công việc rõ ràng, mạch lạc | ☐ | ✅ | ☐ | Viết được phần backend của proposal bằng lời dễ hiểu cho người ngoài nhóm; cần cập nhật tiến độ với các mảng khác thường xuyên hơn. |
+| 8 | **Làm việc nhóm** | Phối hợp hiệu quả với đồng nghiệp và tích cực trong hoạt động nhóm | ☐ | ✅ | ☐ | Làm đúng phần việc đã chia trong nhóm AWSS3nt1n4L và nối phần backend của mình với phần AI và hạ tầng của các bạn; cần chủ động hỗ trợ các mảng khác nhiều hơn. |
+| 9 | **Tác phong làm việc** | Tôn trọng đồng nghiệp, đối tác và văn hóa doanh nghiệp | ✅ | ☐ | ☐ | Tôn trọng mentor, đồng đội và đối tác; tham gia đủ 6 sự kiện tại văn phòng AWS Việt Nam. |
+| 10 | **Kỹ năng giải quyết vấn đề** | Nhận diện vấn đề, đề xuất giải pháp sáng tạo và khả thi | ☐ | ✅ | ☐ | Giải quyết được các vấn đề thật như tìm tin theo vị trí và chạy timer nền mà không cần `Scan`; nhưng có lỗi, như `5xx` khi tải cao, chỉ lộ ra khi chạy load test. |
+| 11 | **Đóng góp cho dự án/tập thể** | Hiệu quả công việc thực tế, sáng kiến và sự ghi nhận từ nhóm | ☐ | ✅ | ☐ | Đóng góp phần lõi backend của ReLoop: thiết kế dữ liệu, quy tắc nghiệp vụ, timer, ghép chi nhánh và số liệu load test cho báo cáo; cùng kết quả tự test AI để chọn Kimi K3. |
+| 12 | **Đánh giá chung** | Nhận định tổng thể về toàn bộ quá trình thực tập | ☐ | ✅ | ☐ | Đi từ tự học AWS cơ bản đến tự viết các phần backend chạy thật trong 12 tuần; vẫn cần cải thiện việc lường trước lỗi và giới hạn dịch vụ, cũng như trao đổi với nhóm. |
 
 ---
 
 ### Những điểm cần cải thiện
 
-* **Tính kỷ luật & chuẩn mực vận hành doanh nghiệp:** Mặc dù đã tuân thủ tốt các nội quy cơ bản và giờ giấc làm việc, việc chuyển đổi từ tư duy học thuật sang môi trường kỹ thuật đám mây doanh nghiệp đòi hỏi sự nghiêm ngặt hơn về quy chuẩn vận hành. Tôi cần duy trì kỷ luật chặt chẽ trong việc kiểm soát tài nguyên – như chủ động theo dõi cảnh báo ngân sách AWS, quản lý thông tin xác thực an toàn, chuẩn hóa đặt tên nhánh git và tuân thủ thời hạn sprint mà không dồn kiểm thử tích hợp đến giai đoạn cuối.
-* **Tư duy giải quyết vấn đề hệ thống & chiều sâu chuyên môn:** Khi gặp sự cố kỹ thuật, ban đầu tôi thường thiên về các giải pháp xử lý nhanh mang tính cục bộ (như chỉnh sửa biểu thức chính quy regex hoặc thử nghiệm cấu hình theo kiểu thử-sai) thay vì lùi lại để phân tích các ràng buộc nền tảng của hệ thống. Để nâng cao đồng thời năng lực chuyên môn đám mây và kỹ năng giải quyết vấn đề, tôi cần rèn luyện tầm nhìn kiến trúc vững hơn – chủ động đánh giá kỹ các trường hợp biên, ràng buộc thiết kế khóa DynamoDB, tính bất biến của thuộc tính Cognito, tác động vòng đời dữ liệu và bài toán đánh đổi chi phí (on-demand so với provisioned) trước khi viết mã.
-* **Giao tiếp kỹ thuật & xử lý tình huống phát sinh:** Dù các buổi trao đổi nội bộ trong nhóm diễn ra hiệu quả, tôi vẫn cần trình bày các vướng mắc kỹ thuật và sự đánh đổi kiến trúc cô đọng hơn với mentor và các bên liên quan. Trong các tình huống phát sinh trở ngại ngoài dự kiến – như cạn kiệt quota dịch vụ, tính bất biến của thuộc tính Cognito, hay giới hạn tích hợp API bên thứ ba – tôi cần cải thiện kỹ năng lập đề xuất báo cáo có cấu trúc (nêu rõ vấn đề, tác động thực tế và 2–3 phương án xử lý khả thi) để xin ý kiến mentor kịp thời, tránh việc tự mình mày mò quá lâu trước khi thông báo.
+* **Lường trước lỗi và giới hạn dịch vụ:** Một số vấn đề tôi chỉ phát hiện khi đã chạy thật, như lỗi `5xx` khi tải cao chỉ lộ ra lúc chạy load test. Tôi cần nghĩ tới timeout, concurrency, quota và các trường hợp chạy trùng ngay từ lúc thiết kế.
+* **Dọn tài nguyên gọn gàng hơn:** Những tài nguyên tôi tạo khi tự thử và khi phát triển, nằm ngoài Terraform, vẫn phải để tới tuần 11 mới rà và dọn. Tôi nên dọn ngay sau khi thử xong.
+* **Trao đổi với nhóm:** Tôi tập trung nhiều vào phần backend của mình. Tôi cần cập nhật tiến độ và hỏi han các mảng khác (frontend, AI, hạ tầng) thường xuyên hơn.
 
 ---
 
-### Kế hoạch hành động và giải pháp khắc phục
+### Kế hoạch hành động
 
-1. **Áp dụng quy trình chẩn đoán sự cố bài bản:** Thay vì vội vã đưa ra bản vá tức thời, ghi chép rõ nguyên nhân lỗi, tra cứu tài liệu đặc tả chính thức của dịch vụ và kiểm chứng nguyên nhân gốc qua log và chỉ số trên CloudWatch trước khi commit thay đổi.
-2. **Chuẩn hóa báo cáo tiến độ hằng ngày:** Chia sẻ cập nhật nhanh hằng ngày (daily stand-up) về các đầu việc đã hoàn thành, vướng mắc hiện tại và hỗ trợ cụ thể cần thiết để giữ nhịp cộng tác xuyên suốt với mentor và đồng đội.
-3. **Áp dụng danh mục kiểm tra kỹ thuật (Checklist-Driven Engineering):** Duy trì danh mục kiểm tra trước khi triển khai cho từng tính năng, bao gồm rà soát quyền tối thiểu IAM, kiểm thử ghi có điều kiện (optimistic concurrency) và đánh giá tác động chi phí trước khi mở Pull Request.
+1. **Ghi giới hạn và trường hợp lỗi trước khi code:** Với mỗi tính năng chạy nền, ghi ra timeout, concurrency, quota và cách xử lý khi chạy trễ hoặc chạy trùng trước khi bắt đầu viết.
+2. **Dọn tài nguyên ngay sau khi thử:** Gắn tag cho tài nguyên tự tạo và xem Cost Explorer hằng tuần để không còn gì chạy thừa.
+3. **Cập nhật tiến độ hằng tuần cho nhóm:** Mỗi tuần chia sẻ ngắn phần backend đã làm gì, đang vướng gì và cần ai hỗ trợ.

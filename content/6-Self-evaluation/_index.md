@@ -1,6 +1,6 @@
 ---
 title: "Self-evaluation"
-date: 2026-11-22
+date: 2026-11-25
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
@@ -8,41 +8,41 @@ pre: " <b> 6. </b> "
 
 ## Self-Evaluation Report
 
-During my internship at **Amazon Web Services Viet Nam Company Limited (Workforce Bootcamp - First Cloud AI Journey)** from **14/09/2026 to 04/12/2026**, I had the opportunity to learn, practice, and apply my cybersecurity and cloud computing knowledge acquired at FPT University to a production-grade working environment.
+I did my internship at **Amazon Web Services Viet Nam Company Limited (Workforce Bootcamp - First Cloud AI Journey)** from **14/09/2026 to 04/12/2026**. As a Cybersecurity student at FPT University, this was the first time I applied what I had learned to a real system running on AWS.
 
-As **Team Lead** for the **ReLoop** platform, I also contributed directly to the backend AI, security, and cloud infrastructure tracks—helping architect an automated device classification and content moderation pipeline using Amazon Bedrock (prototyped with Amazon Nova Pro, then migrated to Kimi K3 on Amazon Bedrock), Amazon Rekognition, DynamoDB single-table design, and Amazon Bedrock Guardrails to defend against visual prompt injection attacks. Through this project, I significantly strengthened my technical skills in serverless cloud architecture, multimodal AI tool integration, DevSecOps, and Infrastructure as Code (Terraform), while sharpening my abilities in technical documentation, code reviews, and cross-functional Agile collaboration.
+I spent the first two weeks studying AWS fundamentals and serverless services on my own. After that I took the **Backend Engineer** role in the **ReLoop** team, a serverless marketplace on AWS for used and broken electronics. My part covered: the single-table DynamoDB key design (`keys.ts`), the backend business rules, scan-free background timers (`timers.ts`) driven by EventBridge, matching listings to nearby branches with geohash, and re-running the load test to confirm that `5xx` errors dropped from 26% to 0. On the AI side, I tested image-analysis models on my own and chose Kimi K3 for ReLoop. I also wrote the backend sections of Proposal Parts 1 and 2, and 3 blog posts on security on AWS.
 
-In terms of work ethic, I consistently took ownership of complex deliverables, adhered strictly to enterprise security rules and workplace policies, proactively engaged with colleagues across frontend and core backend tracks to resolve technical bottlenecks, and maintained steady milestone delivery throughout the 12-week timeline.
+In my work attitude, I tried to finish my assigned parts on time, write documentation from the real code so every number can be checked, and talk to the team when I got stuck.
 
-To objectively reflect on my internship period, I evaluate my performance based on the following criteria:
+I evaluate myself on the following criteria:
 
 | No. | Criteria | Description | Good | Fair | Average | Specific Comment |
 | :--- | :--- | :--- | :---: | :---: | :---: | :--- |
-| 1 | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ☐ | ✅ | ☐ | Built ReLoop's serverless AI, security, and Terraform stack (Bedrock, Rekognition, DynamoDB), while continuing to deepen system-level foresight on key design and cost trade-offs. |
-| 2 | **Ability to learn** | Ability to absorb new knowledge and learn quickly | ✅ | ☐ | ☐ | Rapidly mastered 12 managed AWS services, Terraform IaC, and Bedrock Guardrails across the 12-week FCAJ bootcamp from scratch. |
-| 3 | **Proactiveness** | Taking initiative, seeking out tasks without waiting for instructions | ✅ | ☐ | ☐ | Led spec-gap triage (45 business decisions), initiated red-team prompt-injection testing, and proactively switched AI models from Nova Pro to Kimi K3 based on measured accuracy. |
-| 4 | **Sense of responsibility** | Completing tasks on time and ensuring quality | ✅ | ☐ | ☐ | Delivered Proposal Parts 1–2, live Workshop verification (5.1–5.12), and 3 AWS Study Group blogs on schedule with zero unverified claims. |
-| 5 | **Discipline** | Adhering to schedules, rules, and work processes | ☐ | ✅ | ☐ | Met attendance and security rules consistently, while strengthening daily operational discipline around branch hygiene, sprint pacing, and single-workflow CI/CD deploys. |
-| 6 | **Progressive mindset** | Willingness to receive feedback and improve oneself | ✅ | ☐ | ☐ | Actively incorporated mentor feedback and 5 QA rounds (146 findings) to fix Vietnamese AI accuracy, concurrency throttling, and origin-locking gaps. |
-| 7 | **Communication** | Presenting ideas and reporting work clearly | ☐ | ✅ | ☐ | Communicated effectively within the team and in written technical docs, while working to escalate blockers to mentors earlier with concise impact-and-options briefs. |
-| 8 | **Teamwork** | Working effectively with colleagues and participating in teams | ✅ | ☐ | ☐ | Coordinated cleanly across the 5-member ReLoop team (frontend, core backend, AI, and IaC), aligning API contracts, code reviews, and shared deploy rules. |
-| 9 | **Professional conduct** | Respecting colleagues, partners, and the work environment | ✅ | ☐ | ☐ | Maintained respectful, constructive collaboration with AWS mentors, teammates, and community partners across all 6 FCAJ events and office sessions. |
-| 10 | **Problem-solving skills** | Identifying problems, proposing solutions, and showing creativity | ☐ | ✅ | ☐ | Resolved real issues such as Lambda 5xx spikes and visual prompt injection, while shifting from fast local patches toward structured root-cause analysis before coding. |
-| 11 | **Contribution to project/team** | Work effectiveness, innovative ideas, recognition from the team | ✅ | ☐ | ☐ | Served as Team Lead and delivered ReLoop's Terraform stack, Bedrock Kimi K3 + Guardrails pipeline (40% → 92% benchmark accuracy), and technical reference. |
-| 12 | **Overall** | General evaluation of the entire internship period | ✅ | ☐ | ☐ | Strong end-to-end growth across cloud architecture, DevSecOps, and team leadership, with a clear action plan to close operational and communication gaps. |
+| 1 | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ☐ | ✅ | ☐ | Used DynamoDB, Lambda, API Gateway, EventBridge and S3 for the ReLoop backend; I still need to learn more about each service's limits and failure cases. |
+| 2 | **Ability to learn** | Ability to absorb new knowledge and learn quickly | ✅ | ☐ | ☐ | Studied AWS fundamentals and serverless on my own in the first 2 weeks, and was writing backend code by Week 4 (`keys.ts`, 09/10/2026). |
+| 3 | **Proactiveness** | Taking initiative, seeking out tasks without waiting for instructions | ✅ | ☐ | ☐ | Reviewed the specification to put the backend rules into the shared decision log, tested image-analysis AI models on my own to choose one for the team, and tried AWS Security Agent on my own outside the project. |
+| 4 | **Sense of responsibility** | Completing tasks on time and ensuring quality | ☐ | ✅ | ☐ | Handed in my backend parts for Proposal Part 1 (08/10) and Part 2 (13/11) on time; I need to check failure cases more carefully before handing a feature over. |
+| 5 | **Discipline** | Adhering to schedules, rules, and work processes | ☐ | ✅ | ☐ | Kept a weekly worklog and followed the team's shared rules; I need to clean up the resources I create right after trying them, instead of leaving it to the end. |
+| 6 | **Progressive mindset** | Willingness to receive feedback and improve oneself | ✅ | ☐ | ☐ | Took on the mentors' questions about cost and security; studied the system's security layers (WAF, Cognito, IAM) on my own even though they were not my part. |
+| 7 | **Communication** | Presenting ideas and reporting work clearly | ☐ | ✅ | ☐ | Wrote the backend parts of the proposal in plain words for readers outside the team; I need to share my progress with the other tracks more often. |
+| 8 | **Teamwork** | Working effectively with colleagues and participating in teams | ☐ | ✅ | ☐ | Did my assigned part in team AWSS3nt1n4L and connected my backend work with my teammates' AI and infrastructure parts; I need to help the other tracks more actively. |
+| 9 | **Professional conduct** | Respecting colleagues, partners, and the work environment | ✅ | ☐ | ☐ | Respectful with mentors, teammates and partners; attended all 6 events at the AWS Vietnam office. |
+| 10 | **Problem-solving skills** | Identifying problems, proposing solutions, and showing creativity | ☐ | ✅ | ☐ | Solved real problems such as finding listings by location and running background timers without a `Scan`; but some issues, like `5xx` under load, only showed up in the load test. |
+| 11 | **Contribution to project/team** | Work effectiveness, innovative ideas, recognition from the team | ☐ | ✅ | ☐ | Contributed the core of the ReLoop backend: data design, business rules, timers, branch matching and the load-test figures for the report; plus my AI tests that led to choosing Kimi K3. |
+| 12 | **Overall** | General evaluation of the entire internship period | ☐ | ✅ | ☐ | Went from self-studying AWS basics to writing backend parts that run for real in 12 weeks; I still need to get better at foreseeing failures and service limits, and at communicating with the team. |
 
 ---
 
 ### Areas for Improvement
 
-* **Enterprise Discipline & Operational Rigor:** While basic company policies and attendance were consistently met, transitioning from an academic mindset to enterprise cloud engineering requires stricter adherence to production operational standards. Moving forward, I need to enforce tighter discipline around routine environment maintenance—such as proactive AWS budget threshold audits, automated credential hygiene, consistent branch naming conventions, and adhering strictly to documented sprint timelines without leaving integration testing to the final deployment stages.
-* **System-Level Problem Solving & Technical Depth:** When resolving technical blockers, I initially gravitated toward rapid, localized fixes (such as tweaking regex patterns or trial-and-error configuration changes) rather than stepping back to analyze fundamental system constraints. To strengthen both my professional cloud skills and problem-solving rigor, I need stronger architectural foresight—deliberately evaluating edge cases, DynamoDB key-design constraints, Cognito attribute immutability, data lifecycle impacts, and cost trade-offs (e.g., on-demand vs. provisioned resource pricing) before writing code.
-* **Technical Communication & Escalation Handling:** While internal peer discussions were productive, I need to express technical blockers and architectural trade-offs more concisely to mentors and cross-functional stakeholders. In situations involving unexpected project hurdles—such as quota exhaustion, Cognito attribute immutability, or third-party API integration limits—I must improve at formulating structured escalation proposals (presenting the problem, impact, and 2–3 viable mitigation options) rather than spending excessive time troubleshooting independently before raising flags.
+* **Foreseeing failures and service limits:** I found some problems only once things were running, such as the `5xx` errors under load that only showed up in the load test. I need to think about timeouts, concurrency, quotas and duplicate runs from the design stage.
+* **Cleaning up resources:** The resources I created while trying things out and during development, outside Terraform, were left until Week 11 to review and remove. I should clean them up right after I finish trying them.
+* **Communicating with the team:** I focused a lot on my own backend part. I need to share my progress and check in with the other tracks (frontend, AI, infrastructure) more often.
 
 ---
 
-### Action Plan & Remediation Strategies
+### Action Plan
 
-1. **Adopt a Structured Incident & Debugging Protocol:** Instead of applying immediate patches when errors occur, document the failure mode, consult official service specifications, and verify root causes in CloudWatch logs and metrics before committing changes.
-2. **Standardize Work-in-Progress Communication:** Share daily stand-up updates highlighting completed tasks, current blockers, and specific help needed to keep team members and mentors aligned without requiring manual check-ins.
-3. **Checklist-Driven Engineering:** Maintain a pre-deployment checklist for every feature covering IAM least-privilege policies, conditional write (optimistic concurrency) tests, and cost impact evaluations prior to opening pull requests.
+1. **Write down limits and failure cases before coding:** For each background feature, note the timeout, concurrency, quota and what happens on a late or duplicate run before I start writing it.
+2. **Clean up right after trying things:** Tag the resources I create and check Cost Explorer every week so nothing is left running.
+3. **Weekly progress update for the team:** Each week, share briefly what the backend part has done, what is blocking it and who I need help from.
